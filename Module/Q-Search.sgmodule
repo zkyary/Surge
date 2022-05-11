@@ -49,6 +49,7 @@
 # ddg：DuckDuckGo 搜索
 # 无指令则转 Google 搜索
 
+[Script]
 # > App Store临时换区
 #源链接爬虫于>>https://www.liangjianghu.com/searchads-appstore-switch
 #Created by ddgksf2013，使用方法：输入区号，搜索即可
