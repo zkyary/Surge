@@ -1,0 +1,10 @@
+#!name=Sub_info
+#!desc=FlowerCloud
+
+[Script]
+Sub_info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js,script-update-interval=0,argument=url=？？？&title=Flower&icon=bolt.heart.fill&color=#ffccff
+#刷新DNS = type=generic,timeout=3,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js,argument=title=𝐓𝐞𝐬𝐭 𝐋𝐚𝐭𝐞𝐧𝐜𝐲&icon=arrow.clockwise.heart&color=# ffccff&server=false
+
+[Panel]
+Sub_info = script-name=Sub_info, update-interval=600
+#刷新DNS = script-name=刷新DNS, update-interval=1
