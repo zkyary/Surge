@@ -18,6 +18,8 @@
 
 # iRingo.boxjs.json - https://raw.githubusercontent.com/VirgilClyne/iRingo/main/box/iRingo.boxjs.json
 
+# 空气质量代码 - EPA_NowCast.2204
+
 //官方模块 https://raw.githubusercontent.com/githubdulong/Script/master/Surge/Surge.sgmodule
 //爬虫复写去广告 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Surge/Advertising/Advertising.sgmodule
 //什么值得买去广告 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.sgmodule
