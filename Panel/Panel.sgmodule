@@ -2,16 +2,16 @@
 #!desc=节假日提醒|️网络信息|机场流量信息|流媒体解锁检测|刷新DNS
 
 [Panel]
-# 节假日提醒
+#节假日提醒
 timecard = script-name=timecard, update-interval=3600
 
 #机场流量信息
-️FlowerCloud= script-name=️FlowerCloud, update-interval=600
+️FlowerCloud = script-name=️FlowerCloud, update-interval=600
 
 #网络信息
 net-info-panel = script-name=net-info-panel, title="网络信息", content="请刷新", style=info, update-interval=60
 
-# 流媒体解锁检测
+#流媒体解锁检测
 stream-all = script-name=stream-all, title="流媒体解锁检测", content="请刷新", update-interval=-1 
 
 #刷新DNS
@@ -19,17 +19,18 @@ flushDNS = script-name=flushDNS, update-interval=1
 
 
 [Script]
-# 节假日提醒
+#节假日提醒
 timecard = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/smartmimi/conf/master/surge/timecard.js
 
 #机场流量信息
-️FlowerCloud= type=generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=（手动填写，需机场节点链接URL-ENCODE转链）&title=️Flower&reset_day=11&icon=bonjour&color=#1abc9c
+️FlowerCloud = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=（手动填写，需机场节点链接URL-ENCODE转链）&title=️Flower&reset_day=11&icon=bonjour&color=#1abc9c
 
 #网络信息
-net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js
-(#https://raw.githubusercontent.com/ventusyu/ventus/main/Panel/Net-info-panel.js)
+net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Panel/Script/Net-info-panel.js
+（参考模板#https://raw.githubusercontent.com/Peng-YM/QuanX/master/Tools/Panels/NetInfo/net-info-panel.js
+#https://raw.githubusercontent.com/ventusyu/ventus/main/Panel/Net-info-panel.js）
 
-# 流媒体解锁检测
+#流媒体解锁检测
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
 
 #刷新DNS
