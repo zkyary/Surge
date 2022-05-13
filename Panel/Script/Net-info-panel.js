@@ -56,16 +56,16 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     $done({
       title: wifi.ssid ? wifi.ssid : cellularInfo,
       content:
-        (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
-        (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
-        (v4.primaryRouter && wifi.ssid ? `Router IPv4 : ${v4.primaryRouter}\n` : '') +
-        (v6.primaryRouter && wifi.ssid ? `Router IPv6 : ${v6.primaryRouter}\n` : '') +
+        (v4.primaryAddress ? `IPv4地址 : ${v4.primaryAddress} \n` : '') +
+        (v6.primaryAddress ? `IPv6地址 : ${v6.primaryAddress}\n` : '') +
+        (v4.primaryRouter && wifi.ssid ? `路由器IPv4地址 : ${v4.primaryRouter}\n` : '') +
+        (v6.primaryRouter && wifi.ssid ? `路由器IPv6地址 : ${v6.primaryRouter}\n` : '') +
         `节点 IP : ${info.query}\n` +
         `节点 ISP : ${info.isp}\n` +
         `节点位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
         }`,
       icon: wifi.ssid ? 'wifi' : 'simcard',
-      'icon-color': wifi.ssid ? '#005CAF' : '#F9BF45',
+      'icon-color': wifi.ssid ? '#F9BF45' : '#F9BF45',
     });
   });
 }
