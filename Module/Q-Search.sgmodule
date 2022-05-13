@@ -46,6 +46,7 @@
  
 # bi: 必应
 # bd：百度搜索
+# ec: Ecosia 搜索
 # ddg：DuckDuckGo 搜索
 # 无指令则转 Google 搜索
 
@@ -152,6 +153,8 @@
 ^https:\/\/duckduckgo.com\/\?q=bi\+([^&]+).+ https://cn.bing.com/search?q=$1 302
 # bd: 百度
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
+# ec: Ecosia
+^https:\/\/duckduckgo.com\/\?q=ec\+([^&]+).+ https://www.ecosia.org/search?q=$1 302
 # ddg: DuckDuckGo 
 ^https:\/\/duckduckgo.com\/\?q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$1 302
 # yh: 油猴
