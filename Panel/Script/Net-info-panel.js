@@ -65,7 +65,7 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         `魔法位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
         }`,
       icon: wifi.ssid ? 'bonjour' : 'simcard',
-      'icon-color': wifi.ssid ? '#FF7F50' : '#F9BF45',
+      'icon-color': wifi.ssid ? '#8C969D' : '#F9BF45',
     });
   });
 }
