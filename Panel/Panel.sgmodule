@@ -23,7 +23,7 @@ flushDNS = script-name=flushDNS, update-interval=1
 timecard = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/smartmimi/conf/master/surge/timecard.js
 
 #机场流量信息
-️FlowerCloud = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=（手动填写，需机场节点链接URL-ENCODE转链）&title=️Flower&reset_day=11&icon=bonjour&color=#1abc9c
+️FlowerCloud = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/sub_info_panel.js, script-update-interval=0, argument=url=（手动填写，需机场节点链接URL-ENCODE转链）&title=️Flower&reset_day=11&icon=leaf.fill&color=#1abc9c
 
 #网络信息
 net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Panel/Script/Net-info-panel.js
