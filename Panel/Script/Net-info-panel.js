@@ -60,9 +60,9 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         (v6.primaryAddress ? `IPv6地址 : ${v6.primaryAddress}\n` : '') +
         (v4.primaryRouter && wifi.ssid ? `路由器IPv4地址 : ${v4.primaryRouter}\n` : '') +
         (v6.primaryRouter && wifi.ssid ? `路由器IPv6地址 : ${v6.primaryRouter}\n` : '') +
-        `节点 IP : ${info.query}\n` +
-        `节点 ISP : ${info.isp}\n` +
-        `节点位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
+        `魔法IP : ${info.query}\n` +
+        `运营商 : ${info.isp}\n` +
+        `魔法位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
         }`,
       icon: wifi.ssid ? 'wifi' : 'simcard',
       'icon-color': wifi.ssid ? '#F9BF45' : '#F9BF45',
