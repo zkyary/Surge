@@ -14,7 +14,7 @@ DOMAIN, ads.nicovideo.jp, reject
 DOMAIN, adui.tg.meitu.com, reject
 DOMAIN, aaid.uyunad.com, reject
 # > 爱奇艺广告屏蔽
-ip-cidr6, 203.107.63.154/32, reject
+IP-CIDR, 203.107.63.154/32, reject, no-resolve
 # > 多多视频去开屏广告
 DOMAIN-SUFFIX, bayescom.com, reject
 # > 车来了（包括小程序）
