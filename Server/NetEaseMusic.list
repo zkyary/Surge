@@ -1,24 +1,6 @@
-[
-  {
-    "name": "NeteaseMusic Unlock 1",
-    "type": "ss",
-    "server": "MUSIC.DESPERADOJ.COM",
-    "port": "30001",
-    "cipher": "aes-128-gcm",
-    "password": "desperadoj.com_free_proxy_d39m",
-    "udp": false,
-    "tfo": false,
-    "supported": {}
-  },
-  {
-    "name": "NeteaseMusic Unlock 2",
-    "type": "ss",
-    "server": "MUSIC.DESPERADOJ.COM",
-    "port": "30003",
-    "cipher": "aes-128-gcm",
-    "password": "desperadoj.com_free_proxy_d39m",
-    "udp": false,
-    "tfo": false,
-    "supported": {}
-  }
-]
+# > NeteaseMusic Unlock List
+# > Just Collect Available Nodes
+# > 2022.05.15
+
+shadowsocks=MUSIC.DESPERADOJ.COM:30001, method=aes-128-gcm, password=desperadoj.com_free_proxy_d39m, fast-open=false, udp-relay=false, tag=NeteaseMusic Unlock 1
+shadowsocks=MUSIC.DESPERADOJ.COM:30003, method=aes-128-gcm, password=desperadoj.com_free_proxy_d39m, fast-open=false, udp-relay=false, tag=NeteaseMusic Unlock 2
