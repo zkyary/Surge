@@ -1,0 +1,24 @@
+[
+  {
+    "name": "NeteaseMusic Unlock 1",
+    "type": "ss",
+    "server": "MUSIC.DESPERADOJ.COM",
+    "port": "30001",
+    "cipher": "aes-128-gcm",
+    "password": "desperadoj.com_free_proxy_d39m",
+    "udp": false,
+    "tfo": false,
+    "supported": {}
+  },
+  {
+    "name": "NeteaseMusic Unlock 2",
+    "type": "ss",
+    "server": "MUSIC.DESPERADOJ.COM",
+    "port": "30003",
+    "cipher": "aes-128-gcm",
+    "password": "desperadoj.com_free_proxy_d39m",
+    "udp": false,
+    "tfo": false,
+    "supported": {}
+  }
+]
