@@ -40,9 +40,9 @@ Gear浏览器破解内购 = type=http-response, pattern=^https:\/\/buy\.itunes\.
 迅雷SVIP = type=http-response, pattern=^https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/Marol62926/MarScrpt/main/xunlei.js
 Document解锁编辑 = type=http-response, pattern=^https?:\/\/license\.pdfexpert\.com\/api\/\d\.\d\/\w{9}\/\w{12}\/(state$|refresh$|check$), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Crack/documents.js
 Web豆瓣电影和电视剧添加便捷播放按钮 = type=http-response, pattern=^https?:\/\/m\.douban\.com\/movie\/subject\/\d+\/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/I-am-R-E/Surge/main/JavaScript/DouBan.js
-#Youtube字幕翻译 = type=http-request, pattern=https:\/\/www.youtube.com\/api\/timedtext\?.+&lang=(?!(zh|zh\-Hans)&)((?!&tlang=zh\-Hans).)*$, script-path=\sHTTP/1\.1(\r\n) request-header &tlang=zh-Hans HTTP/1.1$1
+Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/langkhach270389/Surge-LK/main/scripts/langkhach/endlessgoogle.js
 
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% rich.kuwo.cn, *.kwcdn.kuwo.cn, mobilead.kuwo.cn, musicpay.kuwo.cn, vip1.kuwo.cn, audiobookpay.kuwo.cn, tingshu.kuwo.cn, omp-audiobookpay.lrts.me, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, api.revenuecat.com, m.douban.com, www.youtube.com                                      
+hostname = %INSERT% rich.kuwo.cn, *.kwcdn.kuwo.cn, mobilead.kuwo.cn, musicpay.kuwo.cn, vip1.kuwo.cn, audiobookpay.kuwo.cn, tingshu.kuwo.cn, omp-audiobookpay.lrts.me, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, api.revenuecat.com, m.douban.com, www.google.*                                 
