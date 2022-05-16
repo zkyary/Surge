@@ -1,5 +1,5 @@
 #!name=自用Panel
-#!desc=🌸☁️流量信息|节假日提醒|️网络信息|流媒体解锁检测|刷新DNS
+#!desc=🌸☁️流量信息|节假日提醒|️网络信息|流媒体解锁检测|流量统计|刷新DNS
 
 [Panel]
 #节假日提醒
@@ -13,6 +13,9 @@ net-info-panel = script-name=net-info-panel, title="网络信息", content="请�
 
 #流媒体解锁检测
 stream-all = script-name=stream-all, title="流媒体解锁检测", content="请刷新", update-interval=-1 
+
+#流量统计
+TrafficStatistics = script-name=TrafficStatistics, title="流量统计", content="请刷新", update-interval=1
 
 #刷新DNS
 flushDNS = script-name=flushDNS, update-interval=1
@@ -32,6 +35,9 @@ net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercont
 
 #流媒体解锁检测
 stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent.com/LucaLin233/Luca_Conf/main/Surge/JS/stream-all.js
+
+#流量统计
+TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js, argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
 #刷新DNS
 flushDNS = type=generic, timeout=3, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js, argument=title=𝐓𝐞𝐬𝐭 𝐋𝐚𝐭𝐞𝐧𝐜𝐲&icon=d.circle&color=#8f50de&server=false
