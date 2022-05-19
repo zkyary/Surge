@@ -40,4 +40,4 @@ stream-all = type=generic, timeout=15, script-path=https://raw.githubusercontent
 TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fishingworld/something/main/PanelScripts/trafficstatistics.js, argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
 #刷新DNS
-flushDNS = type=generic, timeout=3, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js, argument=title=𝐓𝐞𝐬𝐭 𝐋𝐚𝐭𝐞𝐧𝐜𝐲&icon=d.circle&color=#8f50de&server=false
+flushDNS = type=generic, timeout=3, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/flushDNS.js, argument=title=𝗧𝗘𝗦𝗧 𝗟𝗔𝗧𝗘𝗡𝗖𝗬&icon=d.circle&color=#8f50de&server=false
