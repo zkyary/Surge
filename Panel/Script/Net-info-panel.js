@@ -1,6 +1,6 @@
 /*
  * Surge 网络详情面板
- * @ventus
+ * @ventus 2022.5.21
  * 详情 README
  */
 const { wifi, v4, v6 } = $network;
