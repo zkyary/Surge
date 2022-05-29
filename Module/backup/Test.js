@@ -80,6 +80,7 @@ function icon_now(num){
     return "gift"
   }else{
     return "tortoise"
+'icon-color': '#e68ab8'
   }
 }
 
