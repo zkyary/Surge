@@ -52,9 +52,9 @@
 
 [Rule]
 # ～ BiliBili_哔哩哔哩_可能的一些推广(beta)@bm7
-^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?,REJECT
+URL-REGEX,^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?,REJECT
 # ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash),REJECT
+URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash),REJECT
 
 
 [URL Rewrite]
