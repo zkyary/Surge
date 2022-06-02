@@ -31,7 +31,7 @@ hostname=api.bilibili.com
 const Group = ('BiliArea_Policy') || '𝗕𝗶𝗹𝗶𝗕𝗶𝗹𝗶';
 
 const message = {
-    group_name: group,
+    group_name: Group,
     policy: direct
 };
 $httpAPI("POST", "v1/policy_groups/select", message).then(resolve => {
