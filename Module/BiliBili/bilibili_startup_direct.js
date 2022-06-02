@@ -28,13 +28,13 @@ hostname=api.bilibili.com
 
 
 
-const Group = $.read('BiliArea_Policy') || '𝗕𝗶𝗹𝗶𝗕𝗶𝗹𝗶';
+const Group = ('BiliArea_Policy') || '𝗕𝗶𝗹𝗶𝗕𝗶𝗹𝗶';
 
 const message = {
-    action: "set_policy_state",
-    content: {[Group]: "direct"}
+    group_name: group,
+    policy: direct
 };
-$configuration.sendMessage(message).then(resolve => {
+$httpAPI("POST", "v1/policy_groups/select", message).then(resolve => {
     if (resolve.error) {
         console.log(resolve.error);
     }
