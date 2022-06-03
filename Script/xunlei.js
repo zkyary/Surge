@@ -1,3 +1,6 @@
+//原作者脚本：https://raw.githubusercontent.com/Marol62926/MarScrpt/main/xunlei.js
+
+
 var body = $response.body;
 var obj = JSON.parse(body);
 
