@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-06-02
-// @ConfigVersion     ( 72 )
+// @UpdateTime        2022-06-04
+// @ConfigVersion     ( 73 )
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -48,6 +48,7 @@
 //2022-05-14 27、移除繁体CC字幕转中文简体，有需要的可以单独引用-> https://github.com/ddgksf2013/Cuttlefish/raw/master/Rewrite/Function/Bilibili_CC.conf
 //2022-05-14 28、去除观影页面下部圆形图标中的AD（诸如：'正式营业'、'非正7'）
 //2022-05-23 29、新增B站启动时开启直连模式
+//2022-06-04 29、去除B站视频流（类似抖音界面）中的广告推送
 
 
 [Rule]
