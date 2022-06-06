@@ -1,0 +1,11 @@
+#!name=微信真实阅读
+#!desc=主选打开地址:https://shrtm.nu/rils 备选打开地址:https://shrtm.nu/k8Pp
+#!system=ios
+
+
+[Script]
+微信真实阅读 = type=http-response,pattern=^https?://mp\.weixin\.qq\.com/s.+?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js,script-update-interval=0,argument="</script>->setTimeout(()=>window.history.back(),6000); </script>"
+
+
+[MITM]
+hostname = %INSERT% mp.weixin.qq.com
