@@ -1,5 +1,5 @@
 #!name=定时任务脚本
-#!desc=最后更新时间 2022-05-23
+#!desc=最后更新时间 2022-06-17
 #!system=ios
 
 # 分割线——————————————————————————
@@ -13,8 +13,6 @@
 美团签到 = type=cron, cronexp=0 2 0 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/meituan/meituan.js, script-update-interval=0
 # > 网易云音乐
 网易音乐 = type=cron, cronexp=30 2 0 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.js, script-update-interval=0
-# > App价格+版本监控
-软件监控 = type=cron, cronexp=30 7-22 * * *, wake-system=1, timeout=600, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/appstore/AppMonitor.js, script-update-interval=0
 # > 每日一句
 每日一句 = type=cron, cronexp=8 8 8 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/githubdulong/Script/master/One.js, script-update-interval=0
 # > 百度贴吧
@@ -24,9 +22,6 @@
 值买任务 = type=cron, cronexp=30 4 0 1 * *, wake-system=1, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_mission.js, script-update-interval=0
 # > Fa米家
 Fa米家签到 = type=cron, cronexp=15 0 * * *, wake-system=1, timeout=30, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js, script-update-interval=0
-# > 饿了么
-饿了么_领取吃货豆 = type=cron, cronexp=10 0 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js, script-update-interval=0
-饿了么_领取任务 = type=cron, cronexp=0 10 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_mission.js, script-update-interval=0
 # > Gist备份+恢复
 数据备份 = type=cron, cronexp=50 23 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/dompling/Script/master/gist/backup.js, script-update-interval=0
 //数据恢复 = type=cron, cronexp=55 23 * 1 *, wake-system=1, script-path=https://raw.githubusercontent.com/dompling/Script/master/gist/restore.js, script-update-interval=0
