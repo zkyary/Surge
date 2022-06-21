@@ -1,3 +1,17 @@
+/**
+ * 登录助手
+ * 环境：qx,loon,surge
+ *
+ * [MITM] *.jd.com, *.*.jd.com, *.jingxi.com, *.*.jingxi.com
+ *
+ * [Rule]
+ * 京喜：^https?:\/\/([\w-]+\.)?([\w-]+\.)jingxi\.com\/?((?!\.(js|json|gif|webp|dpg|flv|mp3|mp4)).)*$
+ * 京东：^https?:\/\/([\w-]+\.)?([\w-]+\.)jd\.(com|hk)\/?((?!\.(js|json|gif|webp|dpg|flv|mp3|mp4)).)*$
+ *
+ * [Script]
+ * https://raw.githubusercontent.com/dompling/Script/master/jd/jd_login_help.js
+ */
+
 const $ = new API('jd_ck_remark'),
   APIKey = 'CookiesJD',
   CacheKey = `#${APIKey}`,
@@ -5,7 +19,6 @@ const $ = new API('jd_ck_remark'),
   searchKey = 'keyword'
 ;($.url = $request.url), ($.html = $response.body)
 
-const cookieIndex = $.read(`#CookieIndex`) || 0
 const boxjs_host = $.read('#boxjs_host').indexOf('com') !== -1 ? 'com' : 'net'
 
 try {
@@ -1153,173 +1166,13 @@ function createScript() {
   `
 }
 
-async function jingfeng() {
-  const jf_headers = {
-    Accept: '*/*',
-    Connection: 'keep-alive',
-    'Content-Type': 'application/json',
-    Host: 'api.m.jd.com',
-    'User-Agent':
-      'Mozilla/5.0 (iPhone; CPU iPhone OS 14_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.4(0x1800042c) NetType/WIFI Language/zh_CN',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'zh-cn',
-  }
-
-  function getUrl(func, body) {
-    return `https://api.m.jd.com/api?functionId=${func}&appid=u&_=${Date.now()}&body=${encodeURIComponent(
-      JSON.stringify(body)
-    )}&loginType=2`
-  }
-
-  async function searchCoupon(skuId, defaultBody = false) {
-    const body = defaultBody || {
-      funName: 'search',
-      version: 'v2',
-      param: { keyWord: skuId },
-    }
-    jf_headers.Referer =
-      'https://servicewechat.com/wxf463e50cd384beda/125/page-frame.html'
-    const url = getUrl('unionSearch', body)
-
-    jf_headers.Cookie = cookiesRemark[cookieIndex].cookie
-    const response = await $.http.post({ url, headers: jf_headers })
-    const res = JSON.parse(response.body)
-    if (res && res.code === 200) {
-      return res.data
-    }
-    return false
-  }
-
-  async function getJFLink() {
-    const body = {
-      funName: 'getSuperClickUrl',
-      param: {
-        materialInfo: $.url,
-        ext1: '200|100_3|',
-      },
-    }
-    const url = getUrl('ConvertSuperLink', body)
-    jf_headers.Referer =
-      'https://servicewechat.com/wxf463e50cd384beda/114/page-frame.html'
-    jf_headers.Cookie = cookiesRemark[0].cookie
-    const response = await $.http.post({ url, headers: jf_headers })
-
-    const res = JSON.parse(response.body)
-
-    if (res.code === 200) {
-      const data = res.data
-      let coupon = {}
-      let couponUrl = ''
-      try {
-        coupon = await searchCoupon(data.skuId)
-        coupon = coupon['skuPage']['result'][0]
-      } catch (e) {
-        console.log(JSON.stringify(e))
-      }
-      if (coupon && coupon.hasCoupon === 1) {
-        const couponInfo = await searchCoupon(data.skuId, {
-          funName: 'getCode',
-          param: {
-            skuId: data['skuId'],
-            appid: 'wxf463e50cd384beda',
-            subUnionId: '',
-            couponUrl: coupon['couponUrl'],
-            requestId: coupon['requestId'],
-            needDlinkQRurl: 1,
-            ext1: '200|100_21|',
-          },
-        })
-        couponUrl = couponInfo.shortUrl
-      }
-      return { ...data, coupon, couponUrl }
-    }
-    return {}
-  }
-
-  if ($.url.indexOf('item.m.jd.com') > -1) {
-    try {
-      const goodsInfo = await getJFLink()
-      let relPrice = goodsInfo.price || 0
-      let priceText = goodsInfo.price || 0
-      let commission = goodsInfo.wlCommissionShare || 0
-
-      if (goodsInfo.coupon && goodsInfo.coupon.couponAfterPrice) {
-        relPrice = goodsInfo.coupon.couponAfterPrice
-        commission = goodsInfo.coupon.commission.toFixed(2)
-        priceText = `${relPrice}<s>￥${goodsInfo.price}</s>`
-      }
-
-      const commissionPrice = ((relPrice * commission) / 100).toFixed(2)
-
-      return `
-  <script type="text/javascript">
-    if(${goodsInfo.price}){
-       console.log("=====载入京粉=====")
-       $("body").append(\`<div class='tool_bar_jf' id='tool_bar_jf'> 
-  <div id="jf" class="tool_bar" style="background:red">
-   <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple125/v4/eb/a8/f6/eba8f63a-b550-4586-b5d3-f22c0718ef81/source/100x100bb.jpg" />
-  </div>
-  </div>\`)
-  
-        $("#jf").on("click",function() {
-           $("#jf_mask .cus-mask_view").html(\`
-           <div class="cus-content" style="padding-bottom:${getRem(
-             0.1
-           )};padding-top: 0;">
-              <h1 style="text-align:center;margin: 0 -${getRem(
-                0.1
-              )} 10px;background-image: linear-gradient(135deg,#f2140c,#f2270c 70%,#f24d0c);color:#fff;padding:${getRem(
-        0.05
-      )};font-size:16px">京粉商品推荐</h1>
-              <ul class="jinfen_group">
-                <li class="price">
-                  <span class="iconfont icon-recharge"></span>
-                  ￥${priceText}
-                </li>
-                <li class="commission">
-                  <span class="iconfont icon-redpacket"></span>￥${commissionPrice}（${commission} %）
-                </li>
-              
-              ${
-                goodsInfo.couponUrl
-                  ? `<li class="coupon">
-                        <span  class="iconfont icon-ticket"></span>
-                        <a href="${goodsInfo.couponUrl}" > 
-                          ${goodsInfo.couponUrl}
-                        </a>
-                      </li>`
-                  : ''
-              } 
-              <li class="cart">
-                  <span  class="iconfont icon-cart"></span>
-                  <a href="${goodsInfo.promotionUrl}"> 
-                    ${goodsInfo.promotionUrl}
-                  </a>
-                </li> 
-              </ul>
-           </div>
-           \`)
-          $('#mask').show();
-          $("#jf_mask").animate({top:"50%"}) 
-        })
-    }
-  </script>`
-    } catch (error) {
-      console.log(`京粉信息读取异常：${error}`)
-    }
-  }
-  return ''
-}
-
 ;(async () => {
   if ($.html.indexOf('</body>') > -1) {
-    const jfScript = await jingfeng()
-
     console.log(`重写URL：${$.url}`)
     const n = createStyle(),
       e = createScript(),
       t = createHTML(),
-      i = `\n${n}\n${t}\n${e}\n${jfScript}`
+      i = `\n${n}\n${t}\n${e}`
     $.html = $.html.replace(/(<body)/, `${i} <body`)
   }
 })()
@@ -1350,8 +1203,8 @@ async function jingfeng() {
   })
 
 // prettier-ignore
-function ENV(){const e="undefined"!=typeof $task,t="undefined"!=typeof $loon,s="undefined"!=typeof $httpClient&&!t,i="function"==typeof require&&"undefined"!=typeof $jsbox;return{isQX:e,isLoon:t,isSurge:s,isNode:"function"==typeof require&&!i,isJSBox:i,isRequest:"undefined"!=typeof $request,isScriptable:"undefined"!=typeof importModule}}
+function ENV(){const e="function"==typeof require&&"undefined"!=typeof $jsbox;return{isQX:"undefined"!=typeof $task,isLoon:"undefined"!=typeof $loon,isSurge:"undefined"!=typeof $httpClient&&"undefined"!=typeof $utils,isBrowser:"undefined"!=typeof document,isNode:"function"==typeof require&&!e,isJSBox:e,isRequest:"undefined"!=typeof $request,isScriptable:"undefined"!=typeof importModule}}
 // prettier-ignore
-function HTTP(e={baseURL:""}){const{isQX:t,isLoon:s,isSurge:o,isScriptable:n,isNode:r}=ENV(),a=/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,u={};return["GET","POST","PUT","DELETE","HEAD","OPTIONS","PATCH"].forEach(i=>u[i.toLowerCase()]=(u=>(function(u,i){i="string"==typeof i?{url:i}:i;const d=e.baseURL;d&&!a.test(i.url||"")&&(i.url=d?d+i.url:i.url),i.body&&i.headers&&!i.headers["Content-Type"]&&(i.headers["Content-Type"]="application/x-www-form-urlencoded");const h=(i={...e,...i}).timeout,l={...{onRequest:()=>{},onResponse:e=>e,onTimeout:()=>{}},...i.events};let c,m;if(l.onRequest(u,i),t)c=$task.fetch({method:u,...i});else if(s||o||r)c=new Promise((e,t)=>{(r?require("request"):$httpClient)[u.toLowerCase()](i,(s,o,n)=>{s?t(s):e({statusCode:o.status||o.statusCode,headers:o.headers,body:n})})});else if(n){const e=new Request(i.url);e.method=u,e.headers=i.headers,e.body=i.body,c=new Promise((t,s)=>{e.loadString().then(s=>{t({statusCode:e.response.statusCode,headers:e.response.headers,body:s})}).catch(e=>s(e))})}const T=h?new Promise((e,t)=>{m=setTimeout(()=>(l.onTimeout(),t(`${u} URL: ${i.url} exceeds the timeout ${h} ms`)),h)}):null;return(T?Promise.race([T,c]).then(e=>(clearTimeout(m),e)):c).then(e=>l.onResponse(e))})(i,u))),u}
+function HTTP(e={baseURL:""}){const{isQX:t,isLoon:s,isSurge:o,isScriptable:n,isNode:i,isBrowser:r}=ENV(),u=/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;const a={};return["GET","POST","PUT","DELETE","HEAD","OPTIONS","PATCH"].forEach(h=>a[h.toLowerCase()]=(a=>(function(a,h){h="string"==typeof h?{url:h}:h;const d=e.baseURL;d&&!u.test(h.url||"")&&(h.url=d?d+h.url:h.url),h.body&&h.headers&&!h.headers["Content-Type"]&&(h.headers["Content-Type"]="application/x-www-form-urlencoded");const l=(h={...e,...h}).timeout,c={...{onRequest:()=>{},onResponse:e=>e,onTimeout:()=>{}},...h.events};let f,p;if(c.onRequest(a,h),t)f=$task.fetch({method:a,...h});else if(s||o||i)f=new Promise((e,t)=>{(i?require("request"):$httpClient)[a.toLowerCase()](h,(s,o,n)=>{s?t(s):e({statusCode:o.status||o.statusCode,headers:o.headers,body:n})})});else if(n){const e=new Request(h.url);e.method=a,e.headers=h.headers,e.body=h.body,f=new Promise((t,s)=>{e.loadString().then(s=>{t({statusCode:e.response.statusCode,headers:e.response.headers,body:s})}).catch(e=>s(e))})}else r&&(f=new Promise((e,t)=>{fetch(h.url,{method:a,headers:h.headers,body:h.body}).then(e=>e.json()).then(t=>e({statusCode:t.status,headers:t.headers,body:t.data})).catch(t)}));const y=l?new Promise((e,t)=>{p=setTimeout(()=>(c.onTimeout(),t(`${a} URL: ${h.url} exceeds the timeout ${l} ms`)),l)}):null;return(y?Promise.race([y,f]).then(e=>(clearTimeout(p),e)):f).then(e=>c.onResponse(e))})(h,a))),a}
 // prettier-ignore
-function API(e="untitled",t=!1){const{isQX:i,isLoon:s,isSurge:n,isNode:o,isJSBox:r,isScriptable:h}=ENV();return new class{constructor(e,t){this.name=e,this.debug=t,this.http=HTTP(),this.env=ENV(),this.node=(()=>o?{fs:require("fs")}:null)(),this.initCache(),Promise.prototype.delay=function(e){return this.then(function(t){return((e,t)=>new Promise(function(i){setTimeout(i.bind(null,t),e)}))(e,t)})}}initCache(){if(i&&(this.cache=JSON.parse($prefs.valueForKey(this.name)||"{}")),(s||n)&&(this.cache=JSON.parse($persistentStore.read(this.name)||"{}")),o){let e="root.json";this.node.fs.existsSync(e)||this.node.fs.writeFileSync(e,JSON.stringify({}),{flag:"wx"},e=>console.log(e)),this.root={},e=`${this.name}.json`,this.node.fs.existsSync(e)?this.cache=JSON.parse(this.node.fs.readFileSync(`${this.name}.json`)):(this.node.fs.writeFileSync(e,JSON.stringify({}),{flag:"wx"},e=>console.log(e)),this.cache={})}}persistCache(){const e=JSON.stringify(this.cache,null,2);i&&$prefs.setValueForKey(e,this.name),(s||n)&&$persistentStore.write(e,this.name),o&&(this.node.fs.writeFileSync(`${this.name}.json`,e,{flag:"w"},e=>console.log(e)),this.node.fs.writeFileSync("root.json",JSON.stringify(this.root,null,2),{flag:"w"},e=>console.log(e)))}write(e,t){if(this.log(`SET ${t}`),-1!==t.indexOf("#")){if(t=t.substr(1),n||s)return $persistentStore.write(e,t);if(i)return $prefs.setValueForKey(e,t);o&&(this.root[t]=e)}else this.cache[t]=e;this.persistCache()}read(e){return this.log(`READ ${e}`),-1===e.indexOf("#")?this.cache[e]:(e=e.substr(1),n||s?$persistentStore.read(e):i?$prefs.valueForKey(e):o?this.root[e]:void 0)}delete(e){if(this.log(`DELETE ${e}`),-1!==e.indexOf("#")){if(e=e.substr(1),n||s)return $persistentStore.write(null,e);if(i)return $prefs.removeValueForKey(e);o&&delete this.root[e]}else delete this.cache[e];this.persistCache()}notify(e,t="",l="",c={}){const a=c["open-url"],f=c["media-url"];if(i&&$notify(e,t,l,c),n&&$notification.post(e,t,l+`${f?"\n多媒体:"+f:""}`,{url:a}),s){let i={};a&&(i["openUrl"]=a),f&&(i["mediaUrl"]=f),"{}"===JSON.stringify(i)?$notification.post(e,t,l):$notification.post(e,t,l,i)}if(o||h){const i=l+(a?`\n点击跳转: ${a}`:"")+(f?`\n多媒体: ${f}`:"");r?require("push").schedule({title:e,body:(t?t+"\n":"")+i}):console.log(`${e}\n${t}\n${i}\n\n`)}}log(e){this.debug&&console.log(`[${this.name}] LOG: ${this.stringify(e)}`)}info(e){console.log(`[${this.name}] INFO: ${this.stringify(e)}`)}error(e){console.log(`[${this.name}] ERROR: ${this.stringify(e)}`)}wait(e){return new Promise(t=>setTimeout(t,e))}done(e={}){i||s||n?$done(e):o&&!r&&"undefined"!=typeof $context&&($context.headers=e.headers,$context.statusCode=e.statusCode,$context.body=e.body)}stringify(e){if("string"==typeof e||e instanceof String)return e;try{return JSON.stringify(e,null,2)}catch(e){return"[object Object]"}}}(e,t)}
+function API(e="untitled",t=!1){const{isQX:s,isLoon:o,isSurge:n,isNode:i,isJSBox:r,isScriptable:u}=ENV();return new class{constructor(e,t){this.name=e,this.debug=t,this.http=HTTP(),this.env=ENV(),this.node=(()=>{if(i){return{fs:require("fs")}}return null})(),this.initCache();Promise.prototype.delay=function(e){return this.then(function(t){return((e,t)=>new Promise(function(s){setTimeout(s.bind(null,t),e)}))(e,t)})}}initCache(){if(s&&(this.cache=JSON.parse($prefs.valueForKey(this.name)||"{}")),(o||n)&&(this.cache=JSON.parse($persistentStore.read(this.name)||"{}")),i){let e="root.json";this.node.fs.existsSync(e)||this.node.fs.writeFileSync(e,JSON.stringify({}),{flag:"wx"},e=>console.log(e)),this.root={},e=`${this.name}.json`,this.node.fs.existsSync(e)?this.cache=JSON.parse(this.node.fs.readFileSync(`${this.name}.json`)):(this.node.fs.writeFileSync(e,JSON.stringify({}),{flag:"wx"},e=>console.log(e)),this.cache={})}}persistCache(){const e=JSON.stringify(this.cache,null,2);s&&$prefs.setValueForKey(e,this.name),(o||n)&&$persistentStore.write(e,this.name),i&&(this.node.fs.writeFileSync(`${this.name}.json`,e,{flag:"w"},e=>console.log(e)),this.node.fs.writeFileSync("root.json",JSON.stringify(this.root,null,2),{flag:"w"},e=>console.log(e)))}write(e,t){if(this.log(`SET ${t}`),-1!==t.indexOf("#")){if(t=t.substr(1),n||o)return $persistentStore.write(e,t);if(s)return $prefs.setValueForKey(e,t);i&&(this.root[t]=e)}else this.cache[t]=e;this.persistCache()}read(e){return this.log(`READ ${e}`),-1===e.indexOf("#")?this.cache[e]:(e=e.substr(1),n||o?$persistentStore.read(e):s?$prefs.valueForKey(e):i?this.root[e]:void 0)}delete(e){if(this.log(`DELETE ${e}`),-1!==e.indexOf("#")){if(e=e.substr(1),n||o)return $persistentStore.write(null,e);if(s)return $prefs.removeValueForKey(e);i&&delete this.root[e]}else delete this.cache[e];this.persistCache()}notify(e,t="",a="",h={}){const d=h["open-url"],l=h["media-url"];if(s&&$notify(e,t,a,h),n&&$notification.post(e,t,a+`${l?"\n多媒体:"+l:""}`,{url:d}),o){let s={};d&&(s["openUrl"]=d),l&&(s["mediaUrl"]=l),"{}"===JSON.stringify(s)?$notification.post(e,t,a):$notification.post(e,t,a,s)}if(i||u){const s=a+(d?`\n点击跳转: ${d}`:"")+(l?`\n多媒体: ${l}`:"");if(r){require("push").schedule({title:e,body:(t?t+"\n":"")+s})}else console.log(`${e}\n${t}\n${s}\n\n`)}}log(e){this.debug&&console.log(`[${this.name}] LOG: ${this.stringify(e)}`)}info(e){console.log(`[${this.name}] INFO: ${this.stringify(e)}`)}error(e){console.log(`[${this.name}] ERROR: ${this.stringify(e)}`)}wait(e){return new Promise(t=>setTimeout(t,e))}done(e={}){s||o||n?$done(e):i&&!r&&"undefined"!=typeof $context&&($context.headers=e.headers,$context.statusCode=e.statusCode,$context.body=e.body)}stringify(e){if("string"==typeof e||e instanceof String)return e;try{return JSON.stringify(e,null,2)}catch(e){return"[object Object]"}}}(e,t)}
