@@ -11,8 +11,6 @@
  * [Script]
  * https://raw.githubusercontent.com/dompling/Script/master/jd/jd_login_help.js
  */
-
-
  const $ = new API('jd_ck_remark'),
  APIKey = 'CookiesJD',
  CacheKey = `#${APIKey}`,
@@ -56,9 +54,9 @@ function initBoxJSData() {
  })
 
  cookiesRemark = CookiesJD.map((item) => ({
-   ...item,
    nickname: getUsername(item.userName),
    ...cookiesFormat[item.userName],
+   ...item,
    username: getUsername(item.userName),
  })).filter((item) => !!item.cookie)
 
@@ -953,13 +951,14 @@ function createScript() {
      })
      const new_jd_ck = []
      const formValue = jd_ck.map((item,index)=>{
+         const {wskey,cookie,userName,...temp} = item;
          if(item.userName === updateItem.userName){
-           updateItem = {...item,...updateItem};
-           new_jd_ck.push(updateItem);
+           updateItem = {...temp , ...updateItem};
+           new_jd_ck.push({...item , ...updateItem});
            return { index , ...updateItem}
          }
          new_jd_ck.push(item);
-         return { index, ...item}
+         return { index, ...temp}
      });
      
      const val = JSON.stringify(formValue, null, \`\t\`);
@@ -1141,6 +1140,7 @@ function createScript() {
 
 ;(async () => {
  if ($.html.indexOf('</body>') > -1) {
+
    console.log(`重写URL：${$.url}`)
    const n = createStyle(),
      e = createScript(),
