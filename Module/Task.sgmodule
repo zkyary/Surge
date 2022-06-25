@@ -1,5 +1,5 @@
 #!name=定时任务脚本
-#!desc=最后更新时间 2022-06-24
+#!desc=最后更新时间 2022-06-26
 #!system=ios
 
 # 分割线——————————————————————————
@@ -8,7 +8,7 @@
 # > 吾爱破解
 吾爱签到 = type=cron, cronexp=0 6 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js, script-update-interval=0
 # > 彩票查询
-彩票查询 = type=cron, cronexp=0 30 21 * * 2,4,7, wake-system=1, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/ssq/ssq.js, script-update-interval=0
+彩票查询 = type=cron, cronexp=0 30 21 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/evilbutcher/Quantumult_X/master/check_in/ssq/ssq.js, script-update-interval=0
 # > 小米运动
 小米运动 = type=cron, cronexp=0 0 5 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/githubdulong/Script/master/xmSports.js, script-update-interval=0
 # > 美团
@@ -21,7 +21,7 @@
 百度贴吧 = type=cron, cronexp=30 3 0 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js, script-update-interval=0
 # > 什么值得买(签到+任务)
 值买签到 = type=cron, cronexp=0 4 0 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_signin.js, script-update-interval=0
-值买任务 = type=cron, cronexp=30 4 0 1 * *, wake-system=1, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_mission.js, script-update-interval=0
+值买任务 = type=cron, cronexp=30 4 0 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_mission.js, script-update-interval=0
 # > Fa米家
 Fa米家签到 = type=cron, cronexp=15 0 * * *, wake-system=1, timeout=30, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js, script-update-interval=0
 # > Sub-Store订阅同步
@@ -34,8 +34,7 @@ Fa米家签到 = type=cron, cronexp=15 0 * * *, wake-system=1, timeout=30, scrip
 
 # > JD Task
 京东多合一签到 = type=cron, cronexp=0 0,12 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
-领京豆额外奖励 = type=cron, cronexp="23 1,12,22 * * *", wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_bean_home.js
-京东极速版 = type=cron, cronexp=1 0-23/6 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js
+京东极速版签到 = type=cron, cronexp=1 0-23/6 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_sign.js
 京东极速版红包 = type=cron, cronexp=2 0,12,22 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jd_speed_redpocke.js
 京喜签到 = type=cron, cronexp=5 0,6 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/Aaron-lv/sync/jd_scripts/jx_sign.js
 京东快递签到 = type=cron, cronexp=10 0,12 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_kd.js
