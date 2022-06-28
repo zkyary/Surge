@@ -1,32 +1,43 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2022-06-05
+#!desc=最后更新时间 2022-06-28
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Rule]
 # > 真不卡
-DOMAIN-SUFFIX, ttayy.cn, reject
-DOMAIN-SUFFIX, zhengxiaoliu.top, reject
+DOMAIN-SUFFIX, ttayy.cn, REJECT
+DOMAIN-SUFFIX, zhengxiaoliu.top, REJECT
 # > NicoNico
-DOMAIN, ads.nicovideo.jp, reject
+DOMAIN, ads.nicovideo.jp, REJECT
 # > 美颜相机去首页和轮播广告
-DOMAIN, adui.tg.meitu.com, reject
-DOMAIN, aaid.uyunad.com, reject
+DOMAIN, adui.tg.meitu.com, REJECT
+DOMAIN, aaid.uyunad.com, REJECT
 # > 爱奇艺广告屏蔽
-IP-CIDR, 203.107.63.154/32, reject, no-resolve
+IP-CIDR, 203.107.63.154/32, REJECT, no-resolve
 # > 多多视频去开屏广告
-DOMAIN-SUFFIX, bayescom.com, reject
+DOMAIN-SUFFIX, bayescom.com, REJECT
 # > 车来了（包括小程序）
-DOMAIN-SUFFIX, atrace.chelaile.net.cn, reject
-DOMAIN, logs.chelaile.net.cn, reject
-DOMAIN, ad.chelaile.net.cn, reject
+DOMAIN-SUFFIX, atrace.chelaile.net.cn, REJECT
+DOMAIN, logs.chelaile.net.cn, REJECT
+DOMAIN, ad.chelaile.net.cn, REJECT
 # > 铁路12306
 DOMAIN, ad.12306.cn, REJECT
 # > 两步路
 DOMAIN-SUFFIX, admobile.top, REJECT
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+
+# 分割线——————————————————————————
+
+[URL Rewrite]
+# > 油管去广告
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - REJECT
+^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - REJECT
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - REJECT
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - REJECT
 
 # 分割线——————————————————————————
 
@@ -47,4 +58,4 @@ Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/se
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% rich.kuwo.cn, *.kwcdn.kuwo.cn, mobilead.kuwo.cn, musicpay.kuwo.cn, vip1.kuwo.cn, audiobookpay.kuwo.cn, tingshu.kuwo.cn, omp-audiobookpay.lrts.me, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, api.revenuecat.com, m.douban.com, www.google.*                                 
+hostname = %INSERT% rich.kuwo.cn, *.kwcdn.kuwo.cn, mobilead.kuwo.cn, musicpay.kuwo.cn, vip1.kuwo.cn, audiobookpay.kuwo.cn, tingshu.kuwo.cn, omp-audiobookpay.lrts.me, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, api.revenuecat.com, m.douban.com, www.google.*, -redirector*.googlevideo.com,*.googlevideo.com,www.youtube.com,s.youtube.com,youtubei.googleapis.com                                 
