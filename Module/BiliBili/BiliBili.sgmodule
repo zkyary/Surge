@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-06-04
-// @ConfigVersion     ( 73 )
+// @UpdateTime        2022-07-10
+// @ConfigVersion     V0.0.75
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -49,6 +49,7 @@
 //2022-05-14 28、去除观影页面下部圆形图标中的AD（诸如：'正式营业'、'非正7'）
 //2022-05-23 29、新增B站启动时开启直连模式
 //2022-06-04 29、去除B站视频流（类似抖音界面）中的广告推送
+//2022-07-10 30、去除B站首页右上活动（例如周杰伦）,需要卸载重新安装
 
 
 [Rule]
@@ -64,6 +65,8 @@ URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|Lis
 
 
 [Map Local]
+# ～ BiliBili_哔哩哔哩_屏蔽首页右上活动@ddgksf2013
+"^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_应用开屏去广告@bm7
 "^https://app.bilibili.com/x/v2/splash/show" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_Defaultword@ddgksf2013
