@@ -70,7 +70,7 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 
 
 [Map Local]
-# ～ BiliBili_哔哩哔哩_屏蔽首页右上活动@ddgksf2013
+# ～ BiliBili_哔哩哔哩_屏蔽首页右上活动[卸载重装]@ddgksf2013
 "^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_应用开屏去广告@bm7
 "^https://app.bilibili.com/x/v2/splash/show" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
