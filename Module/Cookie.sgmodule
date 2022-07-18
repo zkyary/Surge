@@ -1,5 +1,5 @@
 #!name=重写获取Cookie
-#!desc=最后更新时间 2022-06-19
+#!desc=最后更新时间 2022-07-18
 #!system=ios
 
 # 分割线——————————————————————————
@@ -22,8 +22,7 @@
 # > Fa米家
 Fa米家_获取cookie = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current),script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
 # > 饿了么
-饿了么_获取cookie = type=http-request,pattern=^https?:\/\/h5\.ele\.me\/restapi\/biz\.svip_scene\/svip\/engine\/queryTrafficSupply,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
-饿了么_获取cookie = type=http-request,pattern=https://h5.ele.me/restapi/biz.growth_finetune/v1/finetune/operate?,script-path=https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js
+饿了么_获取cookie = type=http-request,pattern=https://h5.ele.me/svip/task-list,script-path=http://gitlab.radish.today/root/script/raw/master/ELM/lb_elm.js
 
 # 分割线——————————————————————————
 
