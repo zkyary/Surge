@@ -23,6 +23,7 @@
 Fa米家_获取cookie = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current),script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
 # > 饿了么
 饿了么_获取cookie = type=http-request,pattern=^https?:\/\/h5\.ele\.me\/restapi\/biz\.svip_scene\/svip\/engine\/queryTrafficSupply,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+饿了么_获取cookie = type=http-request,pattern=https://h5.ele.me/restapi/biz.growth_finetune/v1/finetune/operate?,script-path=https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js
 
 # 分割线——————————————————————————
 
