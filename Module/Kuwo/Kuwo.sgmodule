@@ -17,13 +17,13 @@
 // ==/UserScript==
 
 
-[Rule]
+[URL Rewrite]
 # ～ KWYY_酷我音乐_AdBlock@DivineEngine
-URL-REGEX,^https?:\/\/rich\.kuwo\.cn\/AdService\/kaiping\/.+,REJECT
+^https?:\/\/rich\.kuwo\.cn\/AdService\/kaiping\/.+ - REJECT
 # ～ KWYY_酷我音乐_AdBlock@DivineEngine
-URL-REGEX,^https?:\/\/.+\.kwcdn\.kuwo\.cn\/star\/upload\/.+,REJECT
+^https?:\/\/.+\.kwcdn\.kuwo\.cn\/star\/upload\/.+ - REJECT
 # ～ KWYY_酷我音乐_AdBlock@DivineEngine
-URL-REGEX,^https?:\/\/mobilead\.kuwo\.cn\/EcomResourceServer\/Ad,REJECT
+^https?:\/\/mobilead\.kuwo\.cn\/EcomResourceServer\/Ad - REJECT
 
 
 [Map Local]
