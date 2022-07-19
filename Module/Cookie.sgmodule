@@ -22,7 +22,7 @@
 # > Fa米家
 Fa米家_获取cookie = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current),script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
 # > 饿了么
-饿了么_获取cookie = type=http-request,pattern=https://h5.ele.me/restapi/biz.svip_core/v2/foodie/homepage?,script-path=https://raw.githubusercontent.com/ziye888/JavaScript/main/Task/elm.js
+饿了么_获取cookie = type=http-request,pattern=https://h5.ele.me/restapi/biz.growth_finetune/v1/finetune/operate?,script-path=https://raw.githubusercontent.com/leafTheFish/DeathNote/main/elm.js
 
 # 分割线——————————————————————————
 
