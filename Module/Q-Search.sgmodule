@@ -14,7 +14,7 @@
 # wiki: 维基百科
 # wk:   维基中文
 # mg:   Magi
-# tf:   Google 搜索 TestFlight
+# tf:   Google搜索TestFlight
 
 # yd：有道词典搜索
 # trc: Google 译至中
@@ -47,13 +47,13 @@
 # tal： 搜索阿里云盘资源
 # tal2： 搜索阿里云盘资源
  
-# bi: 必应
+# bi: 必应搜索
 # bd：百度搜索
-# ec: Ecosia 搜索
-# ddg：DuckDuckGo 搜索
-# yh: 油猴
-# ios: App Store 搜索
-# 无指令则转 Google 搜索
+# ec: Ecosia搜索
+# ddg：DuckDuckGo搜索
+# yh: 油猴搜索
+# ios: 苹果应用搜索
+# 无指令则转Google搜索
 
 [URL Rewrite]
 # > 引擎
@@ -81,7 +81,7 @@
 # mg  (Magi)
 ^https:\/\/duckduckgo.com\/\?q=mg\+([^&]+).+ https://magi.com/search?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+mg.+ https://magi.com/search?q=$1 302
-# tf  (Google 搜索 TestFlight)
+# tf  (Google搜索TestFlight)
 ^https:\/\/duckduckgo.com\/\?q=tf\+([^&]+).+ https://www.google.com/search?as_q=$1&as_sitesearch=testflight.apple.com 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tf.+ https://www.google.com/search?as_q=$1&as_sitesearch=testflight.apple.com 302
 
@@ -208,7 +208,7 @@
 # yh  (油猴)
 ^https:\/\/duckduckgo.com\/\?q=yh\+([^&]+).+ https://greasyfork.org/zh-CN/scripts?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+yh.+ https://greasyfork.org/zh-CN/scripts?q=$1 302
-# ios  (App Store)
+# ios  (苹果应用)
 ^https:\/\/duckduckgo.com\/\?q=ios\+([^&]+).+ https://www.qimai.cn/search/index/search/$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ios.+ https://www.qimai.cn/search/index/search/$1 302
 # 无指令 (谷歌)
