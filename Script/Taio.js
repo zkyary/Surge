@@ -1,3 +1,22 @@
+/***********************************
+
+#!name=Taio解锁高级订阅
+#!desc=Mr.Eric转载注明出处，建议说明:点击恢复内购成功后启用rule规则，禁用js脚本，目的是为避免反复验证服务器，可随意
+#!system=ios
+
+[Rule]
+#URL-REGEX,^https:\/\/api\.revenuecat\.com\/v1\/subscribers\/.*$,REJECT 
+#URL-REGEX,^https:\/\/api\.revenuecat\.com\/v1\/receipts$,REJECT 
+
+[Script]
+Taio = type=http-response,pattern=https:\/\/api\.revenuecat\.com\/v1\/receipts,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/Alex0510/Eric/master/surge/Script/Taio.js,script-update-interval=0
+
+[MITM]
+hostname = %APPEND% api.revenuecat.com
+
+***********************************/
+
+
 let obj = JSON.parse($response.body);
 
 obj = {
