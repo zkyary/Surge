@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-08-13
-// @ConfigVersion     V0.0.77
+// @UpdateTime        2022-08-24
+// @ConfigVersion     V0.0.79
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -52,11 +52,10 @@
 //2022-07-10 30、去除B站首页右上活动（例如周杰伦）,需要卸载重新安装
 //2022-07-11 31、新增两条RegexURL屏蔽
 //2022-08-13 32、将diy替换为json
+//2022-08-24 33、去除部分无用重写匹配
 
 
 [Rule]
-# ～ BiliBili_哔哩哔哩_可能的一些推广(beta)@bm7
-URL-REGEX,^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?,REJECT
 # ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
 URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash),REJECT
 # ～ BiliBili_哔哩哔哩_屏蔽IP请求@ddgksf2013
@@ -83,8 +82,6 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 "^https://api.bilibili.com/pgc/season/player/cards" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_去除动态中的话题@bm7
 "^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
-# ～ BiliBili_哔哩哔哩_可能的一些推广(beta)@bm7
-"^https?:\/\/api\.bilibili\.com\/pgc\/season\/app\/related\/recommend\?" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
 "^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash)" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 
@@ -110,16 +107,12 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 哔哩哔哩_追番去广告 = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_直播去广告@bm7
 哔哩哔哩_直播去广告 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_动态去广告@bm7
-哔哩哔哩_动态去广告 = type=http-response,pattern=^https?:\/\/api\.vc\.bilibili\.com\/dynamic_svr\/v1\/dynamic_svr\/dynamic_(history|new)\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_标签页处理@ddgksf2013
 哔哩哔哩_标签页处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_我的页面处理@ddgksf2013
 哔哩哔哩_我的页面处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/ddgksf2013/Cuttlefish/master/Script/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_Proto去广告@app2smile
 哔哩哔哩_Proto去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
-# ～ BiliBili_哔哩哔哩_动态广告@yjqiang
-;哔哩哔哩_动态广告 = type=http-response,pattern=^https://app\.bilibili\.com/bilibili\.app\.dynamic\.v2\.Dynamic/DynAll$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/bilibili/bilibili_dynamic.js
 
 
 [MITM]
