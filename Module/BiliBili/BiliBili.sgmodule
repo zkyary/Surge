@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-08-24
-// @ConfigVersion     V0.0.79
+// @UpdateTime        2022-09-12
+// @ConfigVersion     V0.0.80
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -53,6 +53,7 @@
 //2022-07-11 31、新增两条RegexURL屏蔽
 //2022-08-13 32、将diy替换为json
 //2022-08-24 33、去除部分无用重写匹配
+//2022-09-12 34、屏蔽视频播放页面下方浮动方框的广告
 
 
 [Rule]
@@ -70,6 +71,8 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 
 
 [Map Local]
+# ～ BiliBili_哔哩哔哩_屏蔽广告浮窗@ddgksf2013
+"^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_屏蔽首页右上活动[卸载重装]@ddgksf2013
 "^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_应用开屏去广告@bm7
