@@ -5,7 +5,7 @@
 
 [Script]
 微信真实阅读 = type=http-response,pattern=^https?://mp\.weixin\.qq\.com/s.+?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js,script-update-interval=0,argument="</script>->setTimeout(()=>window.history.back(),6000); </script>"
-
+微信阅读去弹窗 = type=http-response,pattern=http://m.*bar/reada/finishTask,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js,script-update-interval=0,argument=true->false
 
 [MITM]
-hostname = %INSERT% mp.weixin.qq.com
+hostname = %INSERT% mp.weixin.qq.com, m*bar
