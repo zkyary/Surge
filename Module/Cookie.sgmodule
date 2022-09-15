@@ -1,5 +1,5 @@
 #!name=重写获取Cookie
-#!desc=最后更新时间 2022-08-25
+#!desc=最后更新时间 2022-09-15
 #!system=ios
 
 # 分割线——————————————————————————
@@ -25,6 +25,11 @@
 什么值买 = script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_signin.js,type=http-request,requires-body=true,pattern=^https?:\/\/zhiyou\.smzdm\.com\/user$
 # > Fa米家
 Fa米家 = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current),script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
+# > 饿了么 app获取（关闭h2，赚吃货豆获取坐标）
+饿了么坐标1 = type=http-request,pattern=^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-home-tasklist-new\/home,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+饿了么坐标2 = type=http-request,pattern=^https?:\/\/tb\.ele\.me\/wow\/alsc\/mod,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+饿了么坐标3 = type=http-request,pattern=^https?:\/\/h5\.ele\.me\/restapi\/biz\.svip_scene\/svip\/engine\/queryTrafficSupply,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
+饿了么CK = type=http-request,pattern=^https?:\/\/air\.tb\.ele\.me\/app\/conch-page\/svip-foodie-card\/home,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js
 
 # 分割线——————————————————————————
 
