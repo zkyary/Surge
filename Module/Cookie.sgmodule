@@ -18,11 +18,11 @@
 #登陆2 https://music.163.com/#/user/level
 网易音乐 = type=http-request,pattern=^https:\/\/music.163.com\/weapi\/user\/level,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/neteasemusic.cookie.js,script-update-interval=0
 # > 百度贴吧 app获取
-百度贴吧 = type=http-request,pattern=^https?:\/\/(c\.tieba\.baidu\.com|180\.97\.\d+\.\d+)\/c\/s\/login,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js
-百度贴吧 = type=http-request,pattern=^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/channelIconConfig,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js
-百度贴吧 = type=http-request,pattern=^https?:\/\/tiebac\.baidu\.com\/c\/u\/follow\/getFoldedMessageUserInfo,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_checkin.js
+百度贴吧 = type=http-request,pattern=^https?:\/\/(c\.tieba\.baidu\.com|180\.97\.\d+\.\d+)\/c\/s\/login,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_signin.js
+百度贴吧 = type=http-request,pattern=^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/channelIconConfig,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_signin.js
+百度贴吧 = type=http-request,pattern=^https?:\/\/tiebac\.baidu\.com\/c\/u\/follow\/getFoldedMessageUserInfo,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_signin.js
 # > 什么值得买 浏览器 https://zhiyou.smzdm.com/
-什么值买 = script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_signin.js,type=http-request,requires-body=true,pattern=^https?:\/\/zhiyou\.smzdm\.com\/user$
+什么值买 = script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_daily.js,type=http-request,requires-body=false,pattern=^https?:\/\/zhiyou\.smzdm\.com\/user$
 # > Fa米家
 Fa米家 = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/member\/(signin\/usersign|sign\/current),script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js
 # > 饿了么 app获取（关闭h2，赚吃货豆获取坐标）
@@ -39,4 +39,4 @@ Fa米家 = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% www.52pojie.cn, api.m.jd.com, bean.m.jd.com, ms.jr.jd.com, me-api.jd.com, mall.oclean.com, music.163.com, 113.96.156.178, *.ximalaya.com, e.189.cn, i.meituan.com, m.weibo.cn, *.m.163.com, c.tieba.baidu.com, tiebac.baidu.com, *.xxjjappss.com, *.*.mob.com, *.huaerdadi.com, zhiyou.smzdm.com, account.huami.com, my.ruanmei.com, m.client.10010.com, ccsp-egmas.sf-express.com, wapside.189.cn:9001, apph5.manmanbuy.com, account.huami.com, club.yili.com, *.bilibili.com, api.wfdata.club, passport.iqiyi.com, fmapp.chinafamilymart.com.cn, h5.ele.me
+hostname = %INSERT% www.52pojie.cn, api.m.jd.com, bean.m.jd.com, ms.jr.jd.com, me-api.jd.com, mall.oclean.com, music.163.com, 113.96.156.178, *.ximalaya.com, e.189.cn, i.meituan.com, m.weibo.cn, *.m.163.com, c.tieba.baidu.com, tiebac.baidu.com, *.xxjjappss.com, *.*.mob.com, *.huaerdadi.com, zhiyou.smzdm.com, account.huami.com, my.ruanmei.com, m.client.10010.com, ccsp-egmas.sf-express.com, wapside.189.cn:9001, apph5.manmanbuy.com, account.huami.com, club.yili.com, *.bilibili.com, api.wfdata.club, passport.iqiyi.com, fmapp.chinafamilymart.com.cn, air.tb.ele.me, tb.ele.me, h5.ele.me
