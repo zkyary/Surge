@@ -27,9 +27,9 @@
 Fa米家签到 = type=cron, cronexp=15 0 * * *, wake-system=1, timeout=30, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js, script-update-interval=0
 # > 饿了么
 饿领吃豆 = type=cron, cronexp=10 9 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_daily.js, script-update-interval=0
-饿领任务 = type=cron, cronexp=15 9 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_mission.js, script-update-interval=0
+//饿领任务 = type=cron, cronexp=15 9 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/eleme/eleme_mission.js, script-update-interval=0
 # > Sub-Store订阅同步
-订阅同步 = type=cron, cronexp=55 23 * * *, wake-system=1, script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, script-update-interval=0
+订阅同步 = type=cron, cronexp=55 23 * * *, wake-system=1, timeout=120, script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, script-update-interval=0
 # > Gist备份+恢复
 数据备份 = type=cron, cronexp=50 23 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/dompling/Script/master/gist/backup.js, script-update-interval=0
 //数据恢复 = type=cron, cronexp=55 23 * 1 *, wake-system=1, script-path=https://raw.githubusercontent.com/dompling/Script/master/gist/restore.js, script-update-interval=0
