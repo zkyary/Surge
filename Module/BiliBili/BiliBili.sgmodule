@@ -63,7 +63,7 @@ URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|Lis
 URL-REGEX,^https?:\/\/app\.bilibili\.com\/x\/resource\/ip,REJECT
 # ～ BiliBili_哔哩哔哩_屏蔽DefaultWord@ddgksf2013
 URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/Default,REJECT
-# ～ BiliBili_规则分流
+# ～ BiliBili_分流规则
 RULE-SET,https://raw.githubusercontent.com/NobyDa/Script/master/Surge/Bilibili.list,𝗕𝗶𝗹𝗶𝗕𝗶𝗹𝗶
 
 
