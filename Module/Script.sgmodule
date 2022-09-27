@@ -1,30 +1,73 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2022-09-19
+#!desc=最后更新时间 2022-09-27
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Rule]
-# > 真不卡
-DOMAIN-SUFFIX, ttayy.cn, REJECT
-DOMAIN-SUFFIX, zhengxiaoliu.top, REJECT
-# > NicoNico
-DOMAIN, ads.nicovideo.jp, REJECT
-# > 美颜相机去首页和轮播广告
-DOMAIN, adui.tg.meitu.com, REJECT
-DOMAIN, aaid.uyunad.com, REJECT
-# > 爱奇艺广告屏蔽
-IP-CIDR, 203.107.63.154/32, REJECT, no-resolve
-# > 多多视频去开屏广告
-DOMAIN-SUFFIX, bayescom.com, REJECT
-# > 车来了（包括小程序）
-DOMAIN-SUFFIX, atrace.chelaile.net.cn, REJECT
-DOMAIN, logs.chelaile.net.cn, REJECT
-DOMAIN, ad.chelaile.net.cn, REJECT
+# > 爱奇艺
+URL-REGEX,^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&dis_dz=,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/.+\/cdn\/qiyiapp\/\d{8}\/.+&z=\w,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/.+\/videos\/other\/,REJECT
+URL-REGEX,^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/fusion_switch,REJECT-TINYGIF
+# > 百度地图开屏广告
+URL-REGEX,^https:\/\/dss0\.bdstatic\.com\/.+/tam-ogel\/.+\.(jpg|mp4),REJECT
+URL-REGEX,^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/free\/open\/advertisingV2,REJECT
+URL-REGEX,^https?:\/\/bp-api\.bestv\.com\.cn\/cms\/api\/c\/home\/searchMark,REJECT
+# > 叮咚买菜
+URL-REGEX,^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/,REJECT
+# > 豆瓣
+URL-REGEX,^https://api.douban.com\b.*\/common_ads\?.*,REJECT
+# > 斗鱼直播去开屏
+URL-REGEX,^https?:\/\/rtbapi\.douyucdn\.cn\/japi\/sign\/app\/getinfo,REJECT
+# > 饿了么
+URL-REGEX,^https?:\/\/elemecdn.com\/.+\/sitemap,REJECT
+URL-REGEX,^https?:\/\/fuss10.elemecdn.com\/.+\/w\/640\/h\/\d{3,4},REJECT
+URL-REGEX,^https?:\/\/fuss10.elemecdn.com\/.+\/w\/750\/h\/\d{3,4},REJECT
+URL-REGEX,^https?:\/\/fuss10.elemecdn.com\/.+.mp4,REJECT
+URL-REGEX,^https?:\/\/www1.elecfans.com\/www\/delivery\/,REJECT
+# > 丰巢
+URL-REGEX,^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/,REJECT
+# > 飞猪
+URL-REGEX,^https?:\/\/gw\.alicdn\.com\/imgextra\/\w{2}\/[\w!]+-\d-tps-\d{3}-\d{4}\.(jpg|png)$,REJECT
+# > 高德
+URL-REGEX,^https?:\/\/m5.amap.com\/ws\/valueadded\/,REJECT
+# > 华住
+URL-REGEX,^https?:\/\/appapi\.huazhu\.com:\d{4}\/client\/app\/getAppStartPage\/,REJECT
+# > 虎扑
+URL-REGEX,^https?:\/\/i\d\.hoopchina\.com\.cn/blogfile\//d+\//d+\/BbsImg\.(?<=(big.(png|jpg)))$,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/games\.mobileapi\.hupu\.com\/.+\/(search|interfaceAdMonitor|status|hupuBbsPm)/(hotkey|init|hupuBbsPm)\.,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/games\.mobileapi\.hupu\.com\/interfaceAdMonitor,REJECT-TINYGIF
+URL-REGEX,^https?:\/\/goblin\.hupu\.com\/.+\/interfaceAd\/getOther,REJECT
+URL-REGEX,^https?:\/\/i1\.hoopchina\.com\.cn\/blogfile\/.+_\d{3}x\d{4},REJECT-TINYGIF
+# > 虎牙直播开屏广告
+URL-REGEX,^http?:\/\/business\.msstatic\.com\/advertiser\/material,REJECT
+# > 京东金融开屏广告
+URL-REGEX,^https?:\/\/ms\.jr\.jd\.com\/gw\/generic\/aladdin\/(new)?na\/m\/getLoadingPicture,REJECT
+# > 交管12123(需卸载重装)
+URL-REGEX,^https:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery,REJECT
+# > 肯德基
+URL-REGEX,^https?:\/\/res.kfc.com.cn\/advertisement\/,REJECT
+# > 酷我音乐去开屏广告 - rich.kuwo.cn,*.kwcdn.kuwo.cn,mobilead.kuwo.cn
+URL-REGEX,^https?:\/\/rich\.kuwo\.cn\/AdService\/kaiping\/.+,REJECT
+URL-REGEX,^https?:\/\/.+\.kwcdn\.kuwo\.cn\/star\/upload\/.+,REJECT
+URL-REGEX,^https?:\/\/mobilead\.kuwo\.cn\/EcomResourceServer\/adBubble\/.+,REJECT
+# > 美团应用
+URL-REGEX,^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/\w+\.(gif|jpg|jpg\.webp)$,REJECT
+URL-REGEX,^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4),REJECT
+URL-REGEX,^https?:\/\/p\d\.meituan\.net\/(bizad|wmbanner)\/\w+\.jpg,REJECT
+URL-REGEX,^https?:\/\/p\d\.meituan\.net\/movie\/\w+\.jpg\?may_covertWebp,REJECT
+# > 美团外卖开屏广告
+URL-REGEX,^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/loadInfo\?,REJECT
+URL-REGEX,^https?:\/\/wmapi\.meituan\.com\/api\/v\d\/startpicture,REJECT
+URL-REGEX,^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\?ad,REJECT
+# > 去哪儿开屏广告
+URL-REGEX,https://homefront.qunar.com/front/splash/ad,REJECT
+# > 顺丰优选
+URL-REGEX,^https://mapi.sfbest.com\/brokerservice-server\/cms\/getPositionById.*,REJECT
 # > 铁路12306
 DOMAIN, ad.12306.cn, REJECT
-# > 两步路
-DOMAIN-SUFFIX, admobile.top, REJECT
+
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 
