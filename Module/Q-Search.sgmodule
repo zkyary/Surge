@@ -1,5 +1,5 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2022-08-05
+#!desc= Safari全能搜索V2.0 最后更新时间 2022-10-04
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
@@ -51,6 +51,7 @@
 # bd：百度搜索
 # ec: Ecosia搜索
 # ddg：DuckDuckGo搜索
+# wz: 无追搜索
 # yh: 油猴搜索
 # ios: 苹果应用搜索
 # 无指令则转Google搜索
@@ -205,6 +206,9 @@
 # ddg (DuckDuckGo) 
 ^https:\/\/duckduckgo.com\/\?q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ddg.+ https://duckduckgo.com/?ia=about&q=$1 302
+# wz  (无追)
+^https:\/\/duckduckgo.com\/\?q=wz\+([^&]+).+ https://www.wuzhuiso.com/s?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+wz.+ https://www.wuzhuiso.com/s?q=$1 302
 # yh  (油猴)
 ^https:\/\/duckduckgo.com\/\?q=yh\+([^&]+).+ https://greasyfork.org/zh-CN/scripts?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+yh.+ https://greasyfork.org/zh-CN/scripts?q=$1 302
