@@ -9,12 +9,12 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-09-12
-// @ConfigVersion     V0.0.80
+// @UpdateTime        2022-10-28
+// @ConfigVersion     V0.0.81
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
-// @ScriptURL         https://github.com/ddgksf2013/Cuttlefish/raw/master/Rewrite/AdBlock/Bilibili.conf
+// @ScriptURL         https://gitlab.com/ddgksf2013/Cuttlefish/-/raw/master/Rewrite/AdBlock/Bilibili.conf
 // ==/UserScript==
 
 
@@ -45,7 +45,7 @@
 //2022-04-02 24、增加哔哩哔哩繁体CC字幕转中文简体功能
 //2022-05-04 25、彻底去除追番页面顶部Banner轮播图中的AD，及其下部圆形图标中的AD（诸如：'五一旅行'、'专属称号'、'最后一天'）
 //2022-05-04 26、移除我的页面墨鱼手记Tag
-//2022-05-14 27、移除繁体CC字幕转中文简体，有需要的可以单独引用-> https://github.com/ddgksf2013/Cuttlefish/raw/master/Rewrite/Function/Bilibili_CC.conf
+//2022-05-14 27、移除繁体CC字幕转中文简体，有需要的可以单独引用-> https://gitlab.com/ddgksf2013/Cuttlefish/-/raw/master/Rewrite/Function/Bilibili_CC.conf
 //2022-05-14 28、去除观影页面下部圆形图标中的AD（诸如：'正式营业'、'非正7'）
 //2022-05-23 29、新增B站启动时开启直连模式
 //2022-06-04 29、去除B站视频流（类似抖音界面）中的广告推送
@@ -54,6 +54,7 @@
 //2022-08-13 32、将diy替换为json
 //2022-08-24 33、去除部分无用重写匹配
 //2022-09-12 34、屏蔽视频播放页面下方浮动方框的广告
+//2022-10-02 35、B站解锁普通视频高码率仅适用国区粉色APP，外区为自我安慰
 
 
 [Rule]
