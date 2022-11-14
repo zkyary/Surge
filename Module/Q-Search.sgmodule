@@ -1,5 +1,5 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2022-10-04
+#!desc= Safari全能搜索V2.0 最后更新时间 2022-11-14
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
@@ -192,6 +192,8 @@
 ^https:\/\/duckduckgo.com\/\?q=kr&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143466&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=kr&urlDesc= 302
 # tr  (切换至土耳其区)
 ^https:\/\/duckduckgo.com\/\?q=tr&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143480&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=tr&urlDesc= 302
+# sg  (切换至新加坡区)
+^https:\/\/duckduckgo.com\/\?q=sg&.+ https://itunes.apple.com/WebObjects/MZStore.woa/wa/resetAndRedirect?dsf=143464&mt=8&url=/WebObjects/MZStore.woa/wa/viewSoftware?mt=8&id=1108187390&cc=tr&urlDesc= 302
 
 # > 默认搜索
 # bi  (必应)
