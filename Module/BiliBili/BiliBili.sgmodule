@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-12-05
-// @ConfigVersion     V0.0.87
+// @UpdateTime        2022-12-15
+// @ConfigVersion     V0.0.90
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -58,6 +58,8 @@
 //2022-11-04 36、修改B站首页右上角活动屏蔽方式，对应第30条，新的无需卸载重装@shiro
 //2022-11-18 37、屏蔽直播间商品广告浮窗@ddgksf2013
 //2022-12-05 38、去除推荐页顶部的banner,修复追番与观影页面打开时app闪退的bug，修复开屏脚本提示错误
+//2022-12-09 39、去除皮肤设置重写，以防与新的皮肤设置脚本冲突
+//2022-12-15 40、将动态tab页面的最长访问恢复，脚本改动已于app2smile原创不一致，请自行选择使用
 
 
 [Rule]
@@ -105,7 +107,7 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 # ～ BiliBili_哔哩哔哩_应用开屏广告预加载@yjqiang
 哔哩哔哩_应用开屏广告预加载 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_去除统一设置的皮肤@ddgksf2013
-哔哩哔哩_去除统一设置的皮肤 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+;哔哩哔哩_去除统一设置的皮肤 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_1080P高码率+4K画质(番剧和影视除外)@ddgksf2013
 哔哩哔哩_1080P高码率+4K画质 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_热搜发现@ddgksf2013
@@ -121,7 +123,7 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 # ～ BiliBili_哔哩哔哩_我的页面处理@ddgksf2013
 哔哩哔哩_我的页面处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_Proto去广告@app2smile
-哔哩哔哩_Proto去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
+哔哩哔哩_Proto去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js(#https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js)
 
 
 [MITM]
