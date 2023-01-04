@@ -123,7 +123,8 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 # ～ BiliBili_哔哩哔哩_我的页面处理@ddgksf2013
 哔哩哔哩_我的页面处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_Proto去广告@app2smile
-哔哩哔哩_Proto去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js(#https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js)
+哔哩哔哩_Proto去广告 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js
+#https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
 
 
 [MITM]
