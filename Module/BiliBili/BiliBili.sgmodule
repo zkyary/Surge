@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-12-15
-// @ConfigVersion     V0.0.90
+// @UpdateTime        2022-01-09
+// @ConfigVersion     V0.0.94
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -60,6 +60,9 @@
 //2022-12-05 38、去除推荐页顶部的banner,修复追番与观影页面打开时app闪退的bug，修复开屏脚本提示错误
 //2022-12-09 39、去除皮肤设置重写，以防与新的皮肤设置脚本冲突
 //2022-12-15 40、将动态tab页面的最长访问恢复，脚本改动已于app2smile原创不一致，请自行选择使用
+//2023-01-06 41、压缩并优化B站脚本内容，大小由24kb->5kb
+//2023-01-07 42、删除脚本中未匹配的$request.url的Part内容
+//2023-01-09 43、屏蔽B站漫画底部中间的手机图片活动
 
 
 [Rule]
@@ -89,10 +92,8 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 "^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_小卡片广告@ddgksf2013
 "^https://api.bilibili.com/pgc/season/player/cards" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
-# ～ BiliBili_哔哩哔哩_去除动态中的话题@bm7
-"^https?:\/\/api\.vc\.bilibili\.com\/topic_svr\/v1\/topic_svr" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
-"^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash)" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 
 
 [Script]
@@ -128,4 +129,4 @@ URL-REGEX,^https?:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/
 
 
 [MITM]
-hostname = %APPEND% app.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, api.bilibili.com, manga.bilibili.com, grpc.biliapi.net, api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net
+hostname = %APPEND% app.bilibili.com, api.live.bilibili.com, api.vc.bilibili.com, *.bilibili.com, *.bilibili.*, grpc.biliapi.net, api.biliapi.net, -broadcast.chat.bilibili.com, -*cdn*.biliapi.net, -*tracker*.biliapi.net
