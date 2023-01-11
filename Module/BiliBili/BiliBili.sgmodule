@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2022-01-09
-// @ConfigVersion     V0.0.94
+// @UpdateTime        2022-01-10
+// @ConfigVersion     V0.0.95
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -63,6 +63,7 @@
 //2023-01-06 41、压缩并优化B站脚本内容，大小由24kb->5kb
 //2023-01-07 42、删除脚本中未匹配的$request.url的Part内容
 //2023-01-09 43、屏蔽B站漫画底部中间的手机图片活动
+//2023-01-10 44、调整粉色B站与白色B站在直连或代理四种情况下顶部tab，删除白B番剧和影视顶部重复tab，如果你在使用白B，请在规则后加上#out=proto
 
 
 [Rule]
