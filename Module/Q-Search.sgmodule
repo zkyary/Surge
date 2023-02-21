@@ -1,13 +1,15 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2022-11-14
+#!desc= Safari全能搜索V2.0 最后更新时间 2023-01-18
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
 # 注：先进入设置更改 Safari 默认搜索为 DuckDuckGO
 # 可自行修改指令或者添加搜索引擎
 
-# gh：  GitHub搜索
 # gm：  Google图片搜索
+# gh：  GitHub搜索
+# gu：  GitHub User搜索
+# gc：  GitHub Code搜索
 # sof:  Stack Overflow
 # se:   StackExchange
 # wa：  WolframAlpha
@@ -64,6 +66,12 @@
 # gh  (GitHub)
 ^https:\/\/duckduckgo.com\/\?q=gh\+([^&]+).+ https://github.com/search?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+gh.+ https://github.com/search?q=$1 302
+# gu  (GitHub User)
+^https:\/\/duckduckgo.com\/\?q=gu\+([^&]+).+ https://github.com/search?q=$1&type=users 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+gu.+ https://github.com/search?q=$1&type=users 302
+# gc  (GitHub Code)
+^https:\/\/duckduckgo.com\/\?q=gc\+([^&]+).+ https://github.com/search?o=desc&q=$1&s=indexed&type=Code 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+gc.+ https://github.com/search?o=desc&q=$1&s=indexed&type=Code 302
 # sof (Stack Overflow)
 ^https:\/\/duckduckgo.com\/\?q=sof\+([^&]+).+ https://stackoverflow.com/search?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+sof.+ https://stackoverflow.com/search?q=$1 302
