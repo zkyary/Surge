@@ -102,6 +102,10 @@ URL-REGEX,^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php,RE
 "^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # > 微博国际版_屏蔽热推荐@ddgksf2013
 "^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\?" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+# > 微博国际版_屏蔽searching_info@shiro
+"^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info" data="https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_info.json"
+# > 微博国际版_屏蔽search_topic@shiro
+"^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic" data="https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_topic.json"
 
 [Script]
 # > 微博_每日一次的开屏广告请求@ddgksf2013
@@ -124,10 +128,6 @@ URL-REGEX,^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php,RE
 微博_去广告以及去除各部分推广模块7 = type=http-response,pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/search/(finder|container_timeline|container_discover),requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 微博_去广告以及去除各部分推广模块8 = type=http-response,pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/(checkin/show|\!/live/media_homelist|comments/build_comments|container/get_item),requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 微博_去广告以及去除各部分推广模块9 = type=http-response,pattern=^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/cardlist,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
-# > 微博国际版_屏蔽searching_info@shiro
-微博国际版_屏蔽searching_info = type=cron, cronexp="^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info url echo-response text/html echo-response", script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_info.json, timeout=60, wake-system=1
-# > 微博国际版_屏蔽search_topic@shiro
-微博国际版_屏蔽search_topic = type=cron, cronexp="^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic url echo-response text/html echo-response", script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_topic.json, timeout=60, wake-system=1
 # > 微博国际版_屏蔽开屏广告@ddgksf2013 
 微博国际版_屏蔽开屏广告 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*get_coopen_ads,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 # > 微博国际版_屏蔽sdkad@ddgksf2013
