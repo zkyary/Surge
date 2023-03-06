@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2022-10-28
+#!desc=最后更新时间 2023-03-06
 #!system=ios
 
 # 分割线——————————————————————————
@@ -87,13 +87,6 @@ AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 (?<=&mcc_mnc=)4 2 307
 ^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
 (^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
-# > 油管去广告
-(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
-^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - REJECT
-^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - REJECT
-^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT
-^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - REJECT
-^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - REJECT
 
 # 分割线——————————————————————————
 
