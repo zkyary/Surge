@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-02-09
-// @ConfigVersion     V2.0.108
+// @UpdateTime        2023-03-04
+// @ConfigVersion     V2.0.109
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -72,6 +72,7 @@
 //2023-02-02 50、特别说明：由于粉B与白B首页顶部都统一了样式，在代理情况下，港澳台的[动画]页面不会出现，建议关闭重写，代理进入即可看到[动画]tab
 //2023-02-07 51、由于proto数据源未更新，致使新版粉B的动态页面，图文混合推送中文字不显示，如果介意此bug，可使用解析器排除该重写#out=DynAll
 //2023-02-09 52、更新biliJson数据源@kokoryh，解决粉色B站动态页面图文混合推送中文字不显示的bug
+//2023-03-04 53、移除B站视频播放下方的商品推广
 
 
 [Rule]
@@ -108,6 +109,8 @@ URL-REGEX,^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.in
 哔哩哔哩_启动时开启直连模式 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/domain,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
 # ～ BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用]@ddgksf2013
 ;哔哩哔哩_繁体CC字幕转中文简体 = type=http-response,pattern=^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js
+# ～ BiliBili_哔哩哔哩_视频播放下方商品推广@ddgksf2013
+哔哩哔哩_视频播放下方商品推广 = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_屏蔽直播页顶部轮播图@ddgksf2013
 哔哩哔哩_屏蔽直播页顶部轮播图 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_屏蔽直播间商品广告浮窗@ddgksf2013
