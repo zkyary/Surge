@@ -10,12 +10,12 @@
 // @TgChannel         https://t.me/ddgksf2021
 // @Contribute        https://t.me/ddgksf2013_bot
 // @Feedback          📮 ddgksf2013@163.com 📮
-// @UpdateTime        2023-03-04
+// @UpdateTime        2023-03-09
 // @Attention         微博、微博国际版净化，现已二合一，使用中若有问题请发邮件！
 // @Function          让你更加愉悦的刷微博
 // @Suitable          自行观看“# > ”注释内容
 // @Attention         如需引用请注明出处，谢谢合作！
-// @Version           V2.0.71
+// @Version           V2.0.74
 // @ScriptURL         https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf
 // ==/UserScript==
 
@@ -82,10 +82,10 @@
 # [+]2023-02-25  59、处理用户反馈的微博国际版‘微博会员’推广CARD
 # [+]2023-02-25  60、修改MITM写法，使小火箭工具能够MITM本重写的域名[后续新的重写配置也将注意此问题]
 # [+]2023-03-04  61、调整boot.biz.weibo.com屏蔽策略，缩短微博应用启动时间，提高用户使用体验[或在本地添加分流host,boot.biz.weibo.com,reject(Anti已包含)]
+# [+]2023-03-09  62、微博在未登录状态下，新增对首页[关注]与[热门]信息流广告的处理
 
 # > 微博_请手动添加以下分流至本地@ddgksf2013
 ; host, sdkapp.uve.weibo.com, direct
-; host, boot.biz.weibo.com, reject
 
 [Rule]
 # > 微博_应用内弹窗广告@ddgksf2013
@@ -113,6 +113,8 @@ URL-REGEX,^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php,RE
 "^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*feed&a=search_topic" data="https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_topic.json"
 
 [Script]
+# > 微博_未登陆状态下首页信息流处理@ddgksf2013
+微博_未登陆状态下首页信息流处理 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/\w{5}\/(statuses_unread_hot_timeline|timeline),requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 # > 微博_视频信息处理@ddgksf2013
 微博_视频信息处理 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/video\/tiny_stream_mid_detail,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_json.js
 # > 微博_屏蔽发现页面搜索框热词@ddgksf2013
