@@ -95,11 +95,9 @@ URL-REGEX,^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(inte
 # > 微博_屏蔽sdkconfig请求@ddgksf2013
 URL-REGEX,^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkconfig\.php,REJECT
 
-[URL Rewrite]
-# > 微博_每日一次的开屏广告请求@ddgksf2013
-^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime - reject-200
-
 [Map Local]
+# > 微博_每日一次的开屏广告请求@ddgksf2013
+"^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank.txt"
 # > 微博_去除底部超话栏表层浮icon及tips@ddgksf2013
 "^https?:\/\/api\.weibo\.cn\/\d\/!\/huati\/discovery_home_bottom_getdotinfo" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
 # > 微博_屏蔽首页左上角每日的弹窗tips@ddgksf2013
