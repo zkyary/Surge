@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-04-01
-// @ConfigVersion     V2.0.111
+// @UpdateTime        2023-04-04
+// @ConfigVersion     V2.0.112
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -74,6 +74,7 @@
 //2023-02-09 52、更新biliJson数据源@kokoryh，解决粉色B站动态页面图文混合推送中文字不显示的bug
 //2023-03-04 53、移除B站视频播放下方的商品推广
 //2023-04-01 54、应用户需求，B站首页顶部的[番剧]Tab内容可随IP更改内容，主要为国内和港澳台内容
+//2023-04-04 55、更改首页顶部Tab排序，将'番剧'移到'热门'Tab前面[依据墨鱼自己的喜好]
 
 
 [Rule]
