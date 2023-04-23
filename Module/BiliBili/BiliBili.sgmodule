@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-04-09
-// @ConfigVersion     V2.0.116
+// @UpdateTime        2023-04-21
+// @ConfigVersion     V2.0.117
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -111,8 +111,8 @@ URL-REGEX,^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.in
 [Script]
 # ～ BiliBili_哔哩哔哩_启动时开启直连模式@NobyDa
 哔哩哔哩_启动时开启直连模式 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/domain,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
-# ～ BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用]@ddgksf2013
-;哔哩哔哩_繁体CC字幕转中文简体 = type=http-response,pattern=^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js
+# ～ BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用hostname=aisubtitle.hdslb.com,i0.hdslb.com]@ddgksf2013
+;哔哩哔哩_繁体CC字幕转中文简体 = type=http-response,pattern=^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js
 # ～ BiliBili_哔哩哔哩_视频播放下方商品推广@ddgksf2013
 哔哩哔哩_视频播放下方商品推广 = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
 # ～ BiliBili_哔哩哔哩_屏蔽直播页顶部轮播图@ddgksf2013
