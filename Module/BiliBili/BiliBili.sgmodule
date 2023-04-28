@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-04-21
-// @ConfigVersion     V2.0.117
+// @UpdateTime        2023-04-27
+// @ConfigVersion     V2.0.118
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -77,6 +77,7 @@
 //2023-04-04 55、更改首页顶部Tab排序，将'番剧'移到'热门'Tab前面[依据墨鱼自己的喜好]
 //2023-04-08 56、处理番剧视频播放页下方各种推广，由于请求地址与换区一致，故请单独引用[https://github.com/ddgksf2013/Rewrite/raw/master/Function/BilibiliAutoRegion.conf]
 //2023-04-09 57、新增移除视频播放页[view/view]下方的activityUrl/reqUser/specialCell/refreshSpecialCell等元素
+//2023-04-27 58、修复视屏播放页UP主显示未关注问题[即已关注点开视屏却显示未关注]
 
 
 [Rule]
