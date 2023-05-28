@@ -1,11 +1,9 @@
-#!name=微信真实阅读
-#!desc=主选地址:https://shrtm.nu/rils 备选地址:https://shrtm.nu/k8Pp
+#!name=微信自动阅读
+#!desc=🔗 主选打开地址：https://shrtm.nu/cvj 🔗 积分提现地址：https://shrtm.nu/cvn
 #!system=ios
 
-
 [Script]
-微信真实阅读 = type=http-response,pattern=^https?://mp\.weixin\.qq\.com/s.+?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js,script-update-interval=0,argument="</script>->setTimeout(()=>window.history.back(),6000); </script>"
-微信阅读去弹窗 = type=http-response,pattern=http://m.*bar/reada/finishTask,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/mieqq/mieqq/master/replace-body.js,script-update-interval=0,argument=true->false
+微信自动阅读（羊毛） = type=http-response,pattern=^https?://mp\.weixin\.qq\.com/s\?.*,script-path=https://github.com/ddgksf2013/Scripts/raw/master/wechat_auto_read.js, requires-body=true
 
 [MITM]
-hostname = %INSERT% mp.weixin.qq.com, m*bar
+hostname = %INSERT% mp.weixin.qq.com
