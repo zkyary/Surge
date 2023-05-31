@@ -5,12 +5,12 @@
 
 // ==UserScript==
 // @ScriptName        哔哩哔哩净化[墨鱼版]
-// @Author            @ddgksf2013, @blackmatrix7, @app2smile, @yjqiang
+// @Author            @ddgksf2013, @blackmatrix7, @app2smile, @yjqiang, @kokoryh, @Maasea
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-04-27
-// @ConfigVersion     V2.0.118
+// @UpdateTime        2023-05-27
+// @ConfigVersion     V2.0.123
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -78,11 +78,11 @@
 //2023-04-08 56、处理番剧视频播放页下方各种推广，由于请求地址与换区一致，故请单独引用[https://github.com/ddgksf2013/Rewrite/raw/master/Function/BilibiliAutoRegion.conf]
 //2023-04-09 57、新增移除视频播放页[view/view]下方的activityUrl/reqUser/specialCell/refreshSpecialCell等元素
 //2023-04-27 58、修复视屏播放页UP主显示未关注问题[即已关注点开视屏却显示未关注]
+//2023-05-27 59、新增去除交互点赞投票弹幕、青少年弹窗@Maasea，由于QX目前还不支持MITM H2，故新版使用可能存在问题[具体可参考https://t.me/ddgksf2021/3749]，这里推荐使用V7.22.0
+//2023-05-27 60、新增去除BiliBili搜索页广告，重写按照功能分组，方便用户自行复制添加部分功能
 
 
 [Rule]
-# ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
-URL-REGEX,^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash),REJECT
 # ～ BiliBili_哔哩哔哩_屏蔽IP请求@ddgksf2013
 URL-REGEX,^https?:\/\/app\.bilibili\.com\/x\/resource\/ip,REJECT
 # ～ BiliBili_哔哩哔哩_屏蔽DefaultWord@ddgksf2013
@@ -90,63 +90,72 @@ URL-REGEX,^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.in
 
 
 [URL Rewrite]
-# ～ BiliBili_哔哩哔哩_去除搜索中的大家都在搜@bm7
-^https?:\/\/api\.vc\.bilibili\.com\/search_svr\/v\d\/Search\/recommend_words - REJECT
+# ～ BiliBili_哔哩哔哩_屏蔽IP请求@ddgksf2013
+;^https?:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
+# ～ BiliBili_哔哩哔哩_屏蔽DefaultWord@ddgksf2013
+;^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Search\/Default - reject
 
 
 [Map Local]
 # ～ BiliBili_哔哩哔哩_屏蔽广告浮窗@ddgksf2013
-"^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
-# ～ BiliBili_哔哩哔哩_应用开屏去广告@bm7
-"^https://app.bilibili.com/x/v2/splash/show" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
-# ～ BiliBili_哔哩哔哩_Defaultword@ddgksf2013
-"^https://app.bilibili.com/x/v2/search/defaultwords" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 # ～ BiliBili_哔哩哔哩_Material_Ad@ddgksf2013
-"^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+^https?:\/\/api\.bilibili\.com\/x\/vip\/ads\/material\/report data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 # ～ BiliBili_哔哩哔哩_小卡片广告@ddgksf2013
-"^https://api.bilibili.com/pgc/season/player/cards" data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+^https://api.bilibili.com/pgc/season/player/cards data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
+# ～ BiliBili_哔哩哔哩_应用开屏去广告@bm7
+^https://app.bilibili.com/x/v2/splash/show data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 # ～ BiliBili_哔哩哔哩_漫画去广告@ddgksf2013
-^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) data="https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/blank/blank_dict.json"
+^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comic\/(Flash|ListFlash|GetActivityTab) data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 
 
 [Script]
-# ～ BiliBili_哔哩哔哩_启动时开启直连模式@NobyDa
-哔哩哔哩_启动时开启直连模式 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/domain,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js
-# ～ BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用hostname=aisubtitle.hdslb.com,i0.hdslb.com]@ddgksf2013
-;哔哩哔哩_繁体CC字幕转中文简体 = type=http-response,pattern=^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js
 # ～ BiliBili_哔哩哔哩_视频播放下方商品推广@ddgksf2013
-哔哩哔哩_视频播放下方商品推广 = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_屏蔽直播页顶部轮播图@ddgksf2013
-哔哩哔哩_屏蔽直播页顶部轮播图 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_屏蔽直播间商品广告浮窗@ddgksf2013
-BiliBili_哔哩哔哩_屏蔽直播间商品广告浮窗 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_屏蔽首页右上活动@ddgksf2013
-哔哩哔哩_屏蔽首页右上活动 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_观影页面去广告@ddgksf2013
-哔哩哔哩_观影页面去广告 = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_应用开屏广告预加载@yjqiang
-哔哩哔哩_应用开屏广告预加载 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_去除统一设置的皮肤[注释留存]@ddgksf2013
-;哔哩哔哩_去除统一设置的皮肤 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_1080P高码率+4K画质[番剧和影视除外]@ddgksf2013
-哔哩哔哩_1080P高码率+4K画质 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_热搜发现@ddgksf2013
-哔哩哔哩_热搜发现 = type=http-response,pattern=^https://app.bilibili.com/x/v2/search/square,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_推荐去广告@ddgksf2013
-哔哩哔哩_推荐去广告 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
-# ～ BiliBili_哔哩哔哩_追番去广告@ddgksf2013
-哔哩哔哩_追番去广告 = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+视频播放下方商品推广 = type=http-response,pattern=^https?:\/\/api\.bili(api|bili)\.(net|com)\/pgc\/season\/app\/related\/recommend\?,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_屏蔽直播间商品广告浮窗[还有一个域名]@ddgksf2013
+屏蔽直播间商品广告浮窗 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\?,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_直播去广告@bm7
-哔哩哔哩_直播去广告 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+直播去广告 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-room\/v1\/index\/getInfoByRoom,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_应用开屏广告预加载@yjqiang
+应用开屏广告预加载 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_1080P高码率+4K画质[番剧和影视除外]@ddgksf2013
+1080P高码率+4K画质 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\?,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_屏蔽直播页顶部轮播图@ddgksf2013
+屏蔽直播页顶部轮播图 = type=http-response,pattern=^https?:\/\/api\.live\.bilibili\.com\/xlive\/app-interface\/v2\/index\/feed,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_推荐去广告@ddgksf2013
+推荐去广告 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/feed\/index,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_追番去广告@ddgksf2013
+追番去广告 = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/bangumi,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_观影页面去广告@ddgksf2013
+观影页面去广告 = type=http-response,pattern=^https?:\/\/api\.(bilibili|biliapi)\.(com|net)\/pgc\/page\/cinema\/tab\?,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_标签页处理@ddgksf2013
-哔哩哔哩_标签页处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+标签页处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/tab,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_我的页面处理@ddgksf2013
-哔哩哔哩_我的页面处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js
+我的页面处理 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/mine,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_屏蔽首页右上活动@ddgksf2013
+屏蔽首页右上活动 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/top\/activity,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_热搜发现@ddgksf2013
+热搜发现 = type=http-response,pattern=^https://app.bilibili.com/x/v2/search/square,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_搜索去广告@BiliUniverse
+搜索去广告 = type=http-response,pattern=^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_交互点赞投票弹幕@Maasea
+交互点赞投票弹幕 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.beta.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_青少年弹窗@Maasea
+青少年弹窗 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.beta.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_UP主推荐广告[适配ipad端]@app2smile@ddgksf2013
-BiliBili_哔哩哔哩_UP主推荐广告[适配ipad端] = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.view\.v1\.View\/View$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js
+UP主推荐广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.view\.v1\.View\/View$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_动态页面去广告@app2smile@kokoryh@ddgksf2013
-BiliBili_哔哩哔哩_动态页面去广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js
-#https://raw.githubusercontent.com/app2smile/rules/master/js/bilibili-proto.js
+动态页面去广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js,script-update-interval=0
+
+# ======= BiliNotAdded ======= #
+# ～ BiliBili_哔哩哔哩_启动时开启直连模式@NobyDa
+;哔哩哔哩_启动时开启直连模式 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/domain,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Bili_Auto_Regions.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_启动时开启直连模式[自行启用]@ddgksf2013
+;哔哩哔哩_启动时开启直连模式 = type=http-response,pattern=#^https?:\/\/app\.bilibili\.com\/x\/resource\/domain,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_startup_direct.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_繁体CC字幕转中文简体[自行启用hostname=aisubtitle.hdslb.com,i0.hdslb.com]@ddgksf2013
+;哔哩哔哩_繁体CC字幕转中文简体 = type=http-response,pattern=^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_去除统一设置的皮肤[注释留存]@ddgksf2013
+;哔哩哔哩_去除统一设置的皮肤 = type=http-response,pattern=^https?:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\?,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
 
 
 [MITM]
