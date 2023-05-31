@@ -1,12 +1,12 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2023-05-27
+#!desc=最后更新时间 2023-05-31
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Rule]
 # > 策略优选
-AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),𝗔𝗽𝗽𝗹𝗲
+AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),Apple
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 
