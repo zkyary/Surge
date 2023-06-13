@@ -1,12 +1,10 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2023-05-31
+#!desc=最后更新时间 2023-06-18
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Rule]
-# > 策略优选
-AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),Apple
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 
@@ -22,7 +20,6 @@ AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 # 分割线——————————————————————————
 
 [Script]
-策略优选 = type=rule,timeout=60,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/speedLimit.js,argument="Return=10min,Group=𝗔𝗽𝗽𝗹𝗲&policy=𝗗𝗜𝗥𝗘𝗖𝗧,𝗣𝗥𝗢𝗫𝗬&time=15&minSpeed=20"
 Proknockout解锁会员 = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, requires-body=1, max-size=0, script-path=http://ox.xmkczs.com/quantumultX/proknockout-vip.js
 Gear浏览器破解内购 = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt$, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/langkhach270389/Quantumult-X-LK/master/Scripts/langkhach/verify_receipt.js
 淘票票豆瓣评分 = type=http-response, pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopshowapi\.getextendshowbyid, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Rewrites/TaoPiaoPiao/taopiaopiao.js
