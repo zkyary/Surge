@@ -5,12 +5,12 @@
 
 // ==UserScript==
 // @ScriptName        哔哩哔哩净化[墨鱼版]
-// @Author            @ddgksf2013, @blackmatrix7, @app2smile, @yjqiang, @kokoryh, @Maasea
+// @Author            @ddgksf2013, @blackmatrix7, @app2smile, @yjqiang, @kokoryh, @Maasea, @BiliUniverse
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-06-28
-// @ConfigVersion     V2.0.123
+// @UpdateTime        2023-08-17
+// @ConfigVersion     V2.0.127
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -81,6 +81,8 @@
 //2023-05-27 59、新增去除交互点赞投票弹幕、青少年弹窗@Maasea，由于QX目前还不支持MITM H2，故新版使用可能存在问题[具体可参考https://t.me/ddgksf2021/3749]，这里推荐使用V7.22.0
 //2023-05-27 60、新增去除BiliBili搜索页广告，重写按照功能分组，方便用户自行复制添加部分功能
 //2023-06-28 61、新增去除B站每日青少年弹窗@BiliUniverse
+//2023-08-07 62、新增去除B站视频播放时的交互点赞投票弹幕@BiliUniverse
+//2023-08-17 63、对PROTO脚本进行调整，脚本来源于@BiliUniverse，按照自己的习惯进行微调：去除所有log信息，保留动态最常访问，去除新的视频动态页下方贴片广告及默认去除交互弹幕
 
 
 [Rule]
@@ -138,15 +140,15 @@ URL-REGEX,^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.in
 # ～ BiliBili_哔哩哔哩_热搜发现@ddgksf2013
 热搜发现 = type=http-response,pattern=^https://app.bilibili.com/x/v2/search/square,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_json.js,script-update-interval=0
 # ～ BiliBili_哔哩哔哩_搜索去广告@BiliUniverse
-搜索去广告 = type=http-response,pattern=^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js,script-update-interval=0
-# ～ BiliBili_哔哩哔哩_交互点赞投票弹幕@Maasea
-交互点赞投票弹幕 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/dist/bilibili.helper.beta.js,script-update-interval=0
-# ～ BiliBili_哔哩哔哩_青少年弹窗@Maasea
-青少年弹窗 = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=1,max-size=3145728,timeout=60,script-path=https://raw.githubusercontent.com/BiliUniverse/ADBlock/main/js/BiliBili.ADBlock.response.js,script-update-interval=0
-# ～ BiliBili_哔哩哔哩_UP主推荐广告[适配ipad端]@app2smile@ddgksf2013
-UP主推荐广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.view\.v1\.View\/View$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js,script-update-interval=0
-# ～ BiliBili_哔哩哔哩_动态页面去广告@app2smile@kokoryh@ddgksf2013
-动态页面去广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto.js,script-update-interval=0
+搜索去广告 = type=http-response,pattern=^https?:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.polymer\.app\.search\.v1\.Search\/SearchAll$,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto_beta.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_交互点赞投票弹幕及会员弹幕@BiliUniverse
+交互点赞投票弹幕 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.community\.service\.dm\.v1\.DM\/(DmView|DmSegMobile),requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto_beta.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_青少年弹窗@BiliUniverse
+青少年弹窗 = type=http-response,pattern=^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Teenagers\/ModeStatus,requires-body=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto_beta.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_UP主推荐广告[适配ipad端]@BiliUniverse
+UP主推荐广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.(view|viewunite)\.v1\.View\/(View|TFInfo)$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto_beta.js,script-update-interval=0
+# ～ BiliBili_哔哩哔哩_动态综合页及视频页去广告@BiliUniverse
+动态页面去广告 = type=http-response,pattern=^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.dynamic\.v2\.Dynamic\/Dyn(All|Video)$,requires-body=1,binary-body-mode=1,max-size=3145728,timeout=60,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_proto_beta.js,script-update-interval=0
 
 # ======= BiliNotAdded ======= #
 # ～ BiliBili_哔哩哔哩_启动时开启直连模式@NobyDa
