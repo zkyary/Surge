@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2023-08-14
+#!desc=最后更新时间 2023-08-23
 #!system=ios
 
 # 分割线——————————————————————————
@@ -25,6 +25,7 @@ AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 # 分割线——————————————————————————
 
 [Script]
+Eago Reader = type=http-response, pattern=^https?:\/\/api\.pxmage\.com\/egoreader\/user\/info, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/ego.js, timeout=60, script-update-interval=0
 京东比价 = type=http-response,requires-body=1,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),script-path=https://raw.githubusercontent.com/githubdulong/Script/master/jd_price.js
 BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 策略优选 = type=rule,timeout=60,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/speedLimit.js,argument="Return=10min,Group=Apple&policy=DIRECT,PROXY&time=15&minSpeed=20"
@@ -39,4 +40,4 @@ Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/se
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, www.google.*, -redirector*.googlevideo.com, *.googlevideo.com,www.youtube.com, s.youtube.com, youtubei.googleapis.com
+hostname = %INSERT% api.pxmage.com, api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, buy.itunes.apple.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, www.google.*, -redirector*.googlevideo.com, *.googlevideo.com,www.youtube.com, s.youtube.com, youtubei.googleapis.com
