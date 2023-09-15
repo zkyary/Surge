@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2023-09-05
+#!desc=最后更新时间 2023-09-15
 #!system=ios
 
 # 分割线——————————————————————————
@@ -12,6 +12,18 @@ force-http-engine-hosts = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.ne
 AND,((DOMAIN,iosapps.itunes.apple.com), (SCRIPT,策略优选)),Apple
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+# > 腾讯视频去广告（如遇失效，则需要重新安装腾讯视频客户端）
+DOMAIN, adsmind.gdtimg.com,REJECT
+DOMAIN, btrace.qq.com,REJECT
+DOMAIN, info4.video.qq.com,REJECT
+DOMAIN, info6.video.qq.com,REJECT
+DOMAIN, ios.video.mpush.qq.com,REJECT
+DOMAIN, mtrace.qq.com,REJECT
+DOMAIN, pgdt.gtimg.cn,REJECT
+DOMAIN, vv.video.qq.com,REJECT
+URL-REGEX, ^http:\/\/[0-9\.:]*\/?(defaultts|vmind\.qqvideo)\.tc\.qq\.com\/\w+,REJECT
+URL-REGEX, ^http:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+,REJECT
+URL-REGEX, ^http:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|varietyts|vmind\.qqvideo)\.tc\.qq\.com\/\w+,REJECT
 
 # 分割线——————————————————————————
 
