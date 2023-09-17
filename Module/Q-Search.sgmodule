@@ -1,5 +1,5 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2023-03-11
+#!desc= Safari全能搜索V2.0 最后更新时间 2023-09-16
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
@@ -145,11 +145,11 @@
 ^https:\/\/duckduckgo.com\/\?q=amz\+([^&]+).+ https://www.amazon.cn/gp/aw/s/?k=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+amz.+ https://www.amazon.cn/gp/aw/s/?k=$1 302
 # jd  (京东)
-^https:\/\/duckduckgo.com\/\?q=jd\+([^&]+).+ https://so.m.jd.com/ware/search.action?keyword=$1 302
-^https:\/\/duckduckgo.com\/\?q=([^+]+)\+jd.+ https://so.m.jd.com/ware/search.action?keyword=$1 302
+^https:\/\/duckduckgo.com\/\?q=jd\+([^&]+).+ openapp.jdmobile://virtual?params={"des":"productList","keyWord":"$1","from":"search","category":"jump"} 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+jd.+ openapp.jdmobile://virtual?params={"des":"productList","keyWord":"$1","from":"search","category":"jump"} 302
 # tb  (淘宝)
-^https:\/\/duckduckgo.com\/\?q=tb\+([^&]+).+ https://s.m.taobao.com/h5?q=$1 302
-^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tb.+ https://s.m.taobao.com/h5?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=tb\+([^&]+).+ taobao://s.taobao.com?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tb.+ taobao://s.taobao.com?q=$1 302
 # tm  (天猫)
 ^https:\/\/duckduckgo.com\/\?q=tm\+([^&]+).+ https://s.m.tmall.com/m/search.htm?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tm.+ https://s.m.tmall.com/m/search.htm?q=$1 302
