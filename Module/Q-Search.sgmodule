@@ -151,8 +151,8 @@
 ^https:\/\/duckduckgo.com\/\?q=tb\+([^&]+).+ taobao://s.taobao.com?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tb.+ taobao://s.taobao.com?q=$1 302
 # tm  (天猫)
-^https:\/\/duckduckgo.com\/\?q=tm\+([^&]+).+ tmall://s.tmall.com/search?q=$1 302
-^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tm.+ tmall://s.tmall.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=tm\+([^&]+).+ tmall://s.tmall.com?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+tm.+ tmall://s.tmall.com?q=$1 302
 
 # > 视频
 # ac  (Acfun)
