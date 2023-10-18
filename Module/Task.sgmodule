@@ -1,10 +1,14 @@
 #!name=定时任务脚本
-#!desc=最后更新时间 2023-05-16
+#!desc=最后更新时间 2023-10-18
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Script]
+# > 网上国网
+网上国网 = type=cron, cronexp=0 0 22 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/95598/95598.js, timeout=60
+# > 每天60S
+每天60S = type=cron, cronexp=0 9 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/60s.js, script-update-interval=0
 # > 欧可林商城
 欧可林商城 = type=cron, cronexp=7 0 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/Oclean/Oclean_mini.js, script-update-interval=0
 # > 彩票查询
@@ -18,7 +22,7 @@
 # > 每日一句
 每日一句 = type=cron, cronexp=8 8 8 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/githubdulong/Script/master/One.js, script-update-interval=0
 # > 今日黄历
-今日黄历 = type=cron,cronexp=8 18 8 * * *,wake-system=1,script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/wnCalendar.js,script-update-interval=0,timeout=30
+今日黄历 = type=cron, cronexp=8 18 8 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/wnCalendar.js, script-update-interval=0, timeout=30
 # > 百度贴吧
 百度贴吧 = type=cron, cronexp=30 3 0 * * *, wake-system=1, timeout=60, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/tieba/tieba_signin.js, script-update-interval=0
 # > 什么值得买
@@ -34,5 +38,5 @@
 # 分割线——————————————————————————
 
 # > JD Task
-京东物流 = type=cron,cronexp=30 0 12 * * *,wake-system=1,script-path=https://raw.githubusercontent.com/id77/QuantumultX/master/task/jdWuLiu.js,script-update-interval=0
+京东物流 = type=cron, cronexp=30 0 12 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/id77/QuantumultX/master/task/jdWuLiu.js, script-update-interval=0
 京东快递签到 = type=cron, cronexp=10 0,12 * * *, wake-system=1, timeout=3600, script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_kd.js
