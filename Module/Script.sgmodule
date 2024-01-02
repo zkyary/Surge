@@ -41,7 +41,7 @@ Gear浏览器破解内购 = type=http-response, pattern=^https:\/\/buy\.itunes\.
 迅雷SVIP = type=http-response, pattern=^https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/xunlei.js
 Document解锁编辑 = type=http-response, pattern=^https?:\/\/license\.pdfexpert\.com\/api\/\d\.\d\/\w{9}\/\w{12}\/(state$|refresh$|check$), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/documents.js
 Web豆瓣电影和电视剧添加便捷播放按钮 = type=http-response, pattern=^https?:\/\/m\.douban\.com\/movie\/subject\/\d+\/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/I-am-R-E/Surge/main/JavaScript/DouBan.js
-Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js
+#Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js
 
 # 分割线——————————————————————————
 
