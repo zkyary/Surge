@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2023-11-24
-// @ConfigVersion     V2.0.128
+// @UpdateTime        2023-01-14
+// @ConfigVersion     V2.0.129
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -84,6 +84,7 @@
 //2023-08-07 62、新增去除B站视频播放时的交互点赞投票弹幕@BiliUniverse
 //2023-08-17 63、对PROTO脚本进行调整，脚本来源于@BiliUniverse，按照自己的习惯进行微调：去除所有log信息，保留动态最常访问，去除新的视频动态页下方贴片广告及默认去除交互弹幕
 //2023-11-24 64、修复新版B站我的页面稍后再看logo缺失问题
+//2024-01-14 65、移除哔哩哔哩看番时，视频左边的“点击追番”CARD
 
 
 [Rule]
@@ -101,6 +102,8 @@ URL-REGEX,^https?:\/\/(app\.bilibili\.com|grpc\.biliapi\.net)\/bilibili\.app\.in
 
 
 [Map Local]
+# ～ BiliBili_哔哩哔哩_点击追番Card@ddgksf2013
+^https?:\/\/api\.bilibili\.com\/pgc\/season\/player\/ogv\/cards data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 # ～ BiliBili_哔哩哔哩_屏蔽广告浮窗@ddgksf2013
 ^https?:\/\/api\.bilibili\.com\/pgc\/activity\/deliver\/material\/receive data="https://raw.githubusercontent.com/gitupdate/updateTeam/master/reject-dict.json"
 # ～ BiliBili_哔哩哔哩_Material_Ad@ddgksf2013
