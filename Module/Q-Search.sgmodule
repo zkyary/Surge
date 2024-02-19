@@ -1,5 +1,5 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2023-09-16
+#!desc= Safari全能搜索V2.0 最后更新时间 2024-01-31
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
@@ -43,7 +43,7 @@
 # bli: 哔哩哔哩
 # ytb: YouTube
 # ph:  PornHub 
-# ys:  cupfox
+# ys:  搜片
 # gd:  Google Drive资源
 # tgd: TG搜索Google Drive资源
 # tal： 搜索阿里云盘资源
@@ -167,9 +167,9 @@
 # ph  (PornHub) 
 ^https:\/\/duckduckgo.com\/\?q=ph\+([^&]+).+ https://cn.pornhub.com/video/search?search=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ph.+ https://cn.pornhub.com/video/search?search=$1 302
-# ys  (cupfox)
-^https:\/\/duckduckgo.com\/\?q=ys\+([^&]+).+ https://cupfox.app/search?key=$1 302
-^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ys.+ https://cupfox.app/search?key=$1 302
+# ys  (搜片)
+^https:\/\/duckduckgo.com\/\?q=ys\+([^&]+).+ https://soupian.icu/search?key=$1 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ys.+ https://soupian.icu/search?key=$1 302
 # gd  (Google Drive)
 ^https:\/\/duckduckgo.com\/\?q=gd\+([^&]+).+ https://www.google.com/search?q=%22Google+Drive%22+$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+gd.+ https://www.google.com/search?q=%22Google+Drive%22+$1 302
