@@ -33,14 +33,13 @@ EmbyPro = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/r
 Eago Reader = type=http-response, pattern=^https?:\/\/api\.pxmage\.com\/egoreader\/user\/info, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/ego.js, timeout=60, script-update-interval=0
 京东比价 = type=http-response,requires-body=1,pattern=^https?://api\.m\.jd\.com/client\.action\?functionId=(wareBusiness|serverConfig|basicConfig),script-path=https://raw.githubusercontent.com/githubdulong/Script/master/jd_price.js
 BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
-淘票票豆瓣评分 = type=http-response, pattern=^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopshowapi\.getextendshowbyid, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/Peng-YM/QuanX/master/Rewrites/TaoPiaoPiao/taopiaopiao.js
 迅雷SVIP = type=http-response, pattern=^https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/xunlei.js
 Document解锁编辑 = type=http-response, pattern=^https?:\/\/license\.pdfexpert\.com\/api\/\d\.\d\/\w{9}\/\w{12}\/(state$|refresh$|check$), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/documents.js
-Web豆瓣电影和电视剧添加便捷播放按钮 = type=http-response, pattern=^https?:\/\/m\.douban\.com\/movie\/subject\/\d+\/, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/I-am-R-E/Surge/main/JavaScript/DouBan.js
+Web豆瓣电影 = type=http-response, pattern=^https://m.douban.com/movie/subject/.+, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Douban.js
 #Proknockout解锁会员 = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, requires-body=1, max-size=0, script-path=http://ox.xmkczs.com/quantumultX/proknockout-vip.js
 #Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js
 
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% *jietu*, biz.cyapi.cn, wrapper.cyapi.cn, mb3admin.com, pan.baidu.com, ap*.intsig.net, wallpaper.soutushenqi.com, api.pxmage.com, api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, guide-acs.m.taobao.com, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com
+hostname = %INSERT% *jietu*, biz.cyapi.cn, wrapper.cyapi.cn, mb3admin.com, pan.baidu.com, ap*.intsig.net, wallpaper.soutushenqi.com, api.pxmage.com, api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com
