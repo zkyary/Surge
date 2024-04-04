@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2024-02-20
+#!desc=最后更新时间 2024-04-05
 #!system=ios
 
 # 分割线——————————————————————————
@@ -8,6 +8,12 @@
 force-http-engine-hosts = %APPEND% boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net
 
 [Rule]
+# > Boxjs 代理
+DOMAIN-KEYWORD,jsdelivr.net,Hong Kong
+DOMAIN-KEYWORD,i.pinimg.com,Hong Kong
+DOMAIN-KEYWORD,64.media.tumblr.com,Hong Kong
+# > Sub-Store 代理
+DOMAIN-KEYWORD,vercel.app,Hong Kong
 # > 屏蔽YouTube的UDP
 AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 
@@ -16,9 +22,9 @@ AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 [URL Rewrite]
 # > TikTok
 (?<=_region=)CN(?=&) JP 307
+(^h.+v5\/)(.+) $1 302
 (?<=&mcc_mnc=)4 2 307
-^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
-(^https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
+(?<=eme\/v)2(?=\/f\w{2}d\/\?.*) 1 302
 
 # 分割线——————————————————————————
 
