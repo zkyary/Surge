@@ -29,6 +29,7 @@ AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 # 分割线——————————————————————————
 
 [Script]
+搜图神器 = type=http-response, pattern=http:\/\/wallpaper\.soutushenqi\.com\/api\/v1\/account\/token, script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-body.js, requires-body=true, max-size=-1, timeout=30, argument=vipType%22%3A%200-%3EvipType%22%3A%201024
 易截图2Pro = type=http-response, pattern=^https?:\/\/.*jietu.*com/apiv\d/user, requires-body=true, max-size=3145728, script-path=https://github.com/ddgksf2013/MoYu/raw/master/YiJieTu2ProCrack.js, timeout=60, script-update-interval=0
 彩云天气 = type=http-response, pattern=^https:\/\/biz\.cyapi\.cn\/(p\/v1\/vip_info|v2\/user)|^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\?, script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js, requires-body=true, max-size=-1
 彩云天气 = type=http-request, pattern=^https:\/\/wrapper\.cyapi\.cn\/v1\/(nafp\/origin_images|satellite)\?, script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
@@ -42,7 +43,6 @@ BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-pat
 豆瓣移动版网页去广告+快捷观影 = type=http-response, pattern=^https?:\/\/m\.douban\.com\/(home_guide|movie|tv|book|group|music), requires-body=1, max-size=0, script-path=https://github.com/ddgksf2013/Scripts/raw/master/douban.js
 #Proknockout解锁会员 = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, requires-body=1, max-size=0, script-path=http://ox.xmkczs.com/quantumultX/proknockout-vip.js
 #Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js
-#搜图神器 = type=http-response, pattern=http:\/\/wallpaper\.soutushenqi\.com\/api\/v1\/account, requires-body=true, max-size=3145728, script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/stsq.js, timeout=60, script-update-interval=0
 #Document解锁编辑 = type=http-response, pattern=^https?:\/\/license\.pdfexpert\.com\/api\/\d\.\d\/\w{9}\/\w{12}\/(state$|refresh$|check$), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/documents.js
 
 # 分割线——————————————————————————
