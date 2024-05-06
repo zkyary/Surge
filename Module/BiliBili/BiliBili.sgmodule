@@ -9,8 +9,8 @@
 // @TaiWanBilibili    https://apps.apple.com/tw/app/id1517062289
 // @HKBilibili        https://apps.apple.com/hk/app/id1517062289
 // @FanjuChuChai      https://space.bilibili.com/11783021/
-// @UpdateTime        2024-02-25
-// @ConfigVersion     V2.0.132
+// @UpdateTime        2024-05-06
+// @ConfigVersion     V2.0.133
 // @Attention         如果广告仍然存在，请清除缓存或卸载应用重新安装
 // @Function          去广告配置（自用，不定期更新）
 // @Suitable          自行观看“# > ”注释内容
@@ -87,6 +87,7 @@
 //2024-01-14 65、移除哔哩哔哩看番时，视频左边的“点击追番”CARD
 //2024-02-07 66、添加哔哩哔哩普通视频解锁1080P高码率和4K视频版本备注7.65
 //2024-02-25 67、去掉屏蔽视频4480端口的重写
+//2024-05-06 68、修复哔哩哔哩V7.77.0新版我的页面收藏按钮消失的BUG
 
 
 [Rule]
