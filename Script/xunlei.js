@@ -16,7 +16,7 @@ obj.vipList = [{
     "vasType": "5",
     "vipDayGrow": "69",
     "vipGrow": "888",
-    "vipLevel": "99"
+    "vipLevel": "10"
   }]
 
 body = JSON.stringify(obj); 
