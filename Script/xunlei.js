@@ -5,7 +5,7 @@ var body = $response.body;
 var obj = JSON.parse(body);
 
 obj.vipList = [{
-    "expireDate": "20290609",
+    "expireDate": "20990609",
     "isAutoDeduct": "0",
     "isVip": "1",
     "isYear": "1",
@@ -16,7 +16,7 @@ obj.vipList = [{
     "vasType": "5",
     "vipDayGrow": "20",
     "vipGrow": "840",
-    "vipLevel": "7"
+    "vipLevel": "9"
   }]
 
 body = JSON.stringify(obj); 
