@@ -13,10 +13,10 @@ obj.vipList = [{
     "payName": "---",
     "register": "0",
     "vasid": "2",
-    "vasType": "5",
+    "vasType": "9",
     "vipDayGrow": "20",
     "vipGrow": "840",
-    "vipLevel": "9"
+    "vipLevel": "99"
   }]
 
 body = JSON.stringify(obj); 
