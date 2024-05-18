@@ -12,8 +12,8 @@ obj.vipList = [{
     "payId": "0",
     "payName": "---",
     "register": "1",
-    "vasid": "3",
-    "vasType": "5",
+    "vasid": "2",
+    "vasType": "6",
     "vipDayGrow": "69",
     "vipGrow": "888",
     "vipLevel": "69"
