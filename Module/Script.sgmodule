@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2024-05-23
+#!desc=最后更新时间 2024-06-01
 #!system=ios
 
 # 分割线——————————————————————————
@@ -15,7 +15,7 @@ DOMAIN-KEYWORD,64.media.tumblr.com,Hong Kong
 # > Sub-Store 代理
 DOMAIN-KEYWORD,vercel.app,Hong Kong
 # > 屏蔽YouTube的UDP
-AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
+#AND,((PROTOCOL,UDP),(DOMAIN-SUFFIX,googlevideo.com)),REJECT-NO-DROP
 
 # 分割线——————————————————————————
 
