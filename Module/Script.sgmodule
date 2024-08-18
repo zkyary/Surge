@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2024-08-11
+#!desc=最后更新时间 2024-08-18
 #!system=ios
 
 # 分割线——————————————————————————
@@ -43,7 +43,6 @@ EmbyPro = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/r
 BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js, requires-body=true, timeout=120
 迅雷SVIP = type=http-response, pattern=^https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/xunlei.js
 豆瓣移动版网页去广告+快捷观影 = type=http-response, pattern=^https?:\/\/m\.douban\.com\/(home_guide|movie|tv|book|group|music), requires-body=1, max-size=0, script-path=https://github.com/ddgksf2013/Scripts/raw/master/douban.js
-#Proknockout解锁会员 = type=http-response, pattern=^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt, requires-body=1, max-size=0, script-path=http://ox.xmkczs.com/quantumultX/proknockout-vip.js
 #Google自动翻页 = type=http-response, pattern=^https?:\/\/www\.google\..*\/search, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/endlessgoogle.js
 #Document解锁编辑 = type=http-response, pattern=^https?:\/\/license\.pdfexpert\.com\/api\/\d\.\d\/\w{9}\/\w{12}\/(state$|refresh$|check$), requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/documents.js
 
