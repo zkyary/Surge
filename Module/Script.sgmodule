@@ -44,4 +44,4 @@ BoxJs = type=http-request,pattern=^https?:\/\/(.+\.)?boxjs\.(com|net),script-pat
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% api.example.com, *-slidebox-ios-prod.cloudfunctions.net, appraven.net, 1jietu.com, biz.cyapi.cn, wrapper.cyapi.cn, mb3admin.com, pan.baidu.com, ap*.intsig.net, wallpaper.soutushenqi.com, api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com
+hostname = %INSERT% api.example.com, *-slidebox-ios-prod.cloudfunctions.net, appraven.net, 1jietu.com, biz.cyapi.cn, wrapper.cyapi.cn, mb3admin.com, pan.baidu.com, ap*.intsig.net, wallpaper.soutushenqi.com, api.m.jd.com, boxjs.com, boxjs.net, *.boxjs.com, *.boxjs.net, xluser-ssl.xunlei.com, license.pdfexpert.com, m.douban.com, -redirector*.googlevideo.com, *.googlevideo.com, www.youtube.com, s.youtube.com, youtubei.googleapis.com
