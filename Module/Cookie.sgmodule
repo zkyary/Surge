@@ -6,7 +6,7 @@
 
 [Script]
 # > 吾爱破解 登陆https://www.52pojie.cn/home.php
-吾爱破解 = type=http-request ^https:\/\/www\.52pojie\.cn\/home\.php\?, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/52pojie.js
+吾爱破解 = type=http-request ^https:\/\/www\.52pojie\.cn\/home\.php\?, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/52pojie.js
 # > 欧可林商城 进入微信小程序"欧可林商城"并点击"每日任务"
 欧可林商城 = type=http-request,pattern=^https:\/\/mall\.oclean\.com\/API\/VshopProcess\.ashx\?action=TaskHome&clientType=5&client=5&openId=,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/Oclean/Oclean_mini.js
 # > 小米运动 app登陆时获取
