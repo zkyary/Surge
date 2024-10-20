@@ -1,5 +1,5 @@
 #!name=自用脚本合集
-#!desc=最后更新时间 2024-10-15
+#!desc=最后更新时间 2024-10-21
 #!system=ios
 
 # 分割线——————————————————————————
@@ -28,8 +28,8 @@ iTranscreen = type=http-response, pattern=^https?:\/\/.+.(itranscreen|tencentcs)
 网上国网小组件数据更新接口 = type=http-request, pattern=^https?:\/\/api\.example\.com\/electricity\/bill\/all, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/95598/95598.scriptable.js, requires-body=true, max-size=-1, timeout=60
 Slidebox-相册清理 = type=http-response,pattern=^https?:\/\/.*-slidebox-ios-prod\.cloudfunctions\.net\/api.+,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/slidebox.js
 AppRaven = type=http-response, pattern=https://appraven.net/appraven/graphql, script-path=https://gitlab.com/isous/loonresource/-/raw/main/Script/AppRaven/AppRaven_crack.js, requires-body=true, max-size=-1, timeout=60
-彩云天气 = type=http-response, pattern=^https:\/\/biz\.cyapi\.cn\/(p\/v1\/vip_info|v2\/user)|^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\?, script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js, requires-body=true, max-size=-1
-彩云天气 = type=http-request, pattern=^https:\/\/wrapper\.cyapi\.cn\/v1\/(nafp\/origin_images|satellite)\?, script-path=https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/break/caiyun.js
+#彩云天气 = type=http-response, pattern=^https:\/\/biz\.cyapi\.cn\/(p\/v1\/vip_info|v2\/user)|^https:\/\/wrapper\.cyapi\.cn\/v1\/activity\?, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/caiyun.js, requires-body=true, max-size=-1(彩云天气Pro 7.20.2 版本号869118414)
+#彩云天气 = type=http-request, pattern=^https:\/\/wrapper\.cyapi\.cn\/v1\/(nafp\/origin_images|satellite)\?, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Script/caiyun.js(彩云天气Pro 7.20.2 版本号869118414)
 EmbyPro = type=http-response,pattern=^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/githubdulong/Script/master/Emby.js
 百度云盘 = type=http-response,pattern=https:\/\/pan\.baidu\.com\/rest\/2\.0\/membership\/user,requires-body=1,max-size=0,script-path=https://github.com/ddgksf2013/Scripts/raw/master/bdcloud.js
 扫描全能王Pro = requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/id77/QuantumultX/master/Script/camscanner.js,type=http-response,pattern=https:\/\/(api|api-cs)*\.intsig\.net\/purchase\/cs\/query_property\?,script-update-interval=0
