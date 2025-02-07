@@ -1,5 +1,5 @@
 #!name= Q-Search
-#!desc= Safari全能搜索V2.0 最后更新时间 2024-01-31
+#!desc= Safari全能搜索V2.0 最后更新时间 2025-02-07
 #!system=ios
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 【命令+空格+关键词】或者【关键词+空格+命令】 快速指定搜索引擎搜索
@@ -208,8 +208,8 @@
 ^https:\/\/duckduckgo.com\/\?q=bi\+([^&]+).+ https://cn.bing.com/search?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+bi.+ https://cn.bing.com/search?q=$1 302
 # bd  (百度)
-^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
-^https:\/\/duckduckgo.com\/\?q=([^+]+)\+bd.+ https://www.baidu.com/s?wd=$1 302
+^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1%20-adclear 302
+^https:\/\/duckduckgo.com\/\?q=([^+]+)\+bd.+ https://www.baidu.com/s?wd=$1%20-adclear 302
 # ec  (Ecosia)
 ^https:\/\/duckduckgo.com\/\?q=ec\+([^&]+).+ https://www.ecosia.org/search?q=$1 302
 ^https:\/\/duckduckgo.com\/\?q=([^+]+)\+ec.+ https://www.ecosia.org/search?q=$1 302
