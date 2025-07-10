@@ -9,12 +9,12 @@
 // @TgChannel         https://t.me/ddgksf2021
 // @Contribute        https://t.me/ddgksf2013_bot
 // @Feedback          📮 ddgksf2013@163.com 📮
-// @UpdateTime        2024-10-30
+// @UpdateTime        2025-01-26
 // @Attention         微博、微博国际版净化，现已二合一，使用中若有问题请发邮件！
 // @Suitable          自行观看“# > ”注释内容
 // @Contributors      @zmqcherish
 // @Attention         如需引用请注明出处，谢谢合作！
-// @Version           V2.0.103
+// @Version           V2.0.105
 // @ScriptURL         https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/Weibo.conf
 // ==/UserScript==
 
@@ -106,11 +106,17 @@
 # [+]2024-09-21  84、修改两条重写，便于GITHUBACTION生成的墨鱼去广告模块小火箭也能有效
 # [+]2024-10-03  85、修复微博国际版（最新版本）去广告后点击热搜词APP会奔溃的问题
 # [+]2024-10-30  86、采用另一种方式去除搜索页面中部的品牌商品推广
+# [+]2024-12-22  87、修复微博搜索页搜索框默认填词失效及搜索框猜你想搜问题
+# [+]2024-01-26  88、修复微博搜索页搜索框默认填词失效及首页顶部新出的直播及发现页中部的广告
 
 # > 微博_请手动添加以下分流至本地@ddgksf2013
 ; host, sdkapp.uve.weibo.com, direct
 
 [Rule]
+# > 微博_首页顶部直播推荐Tab@ddgksf2013
+URL-REGEX,^https?:\/\/api\.weibo\.cn\/.*\/media_homelist,REJECT
+# > 微博_搜索页默认填充词@ddgksf2013
+URL-REGEX,^https?:\/\/api\.weibo\.cn\/.*finder\/searchbarchange,REJECT
 # > 微博_应用内弹窗广告@ddgksf2013
 URL-REGEX,^https?:\/\/(preload-click|preload-impression)\.uve\.weibo\.com\/(interface\/wbpullad\/wbpullad_click\.php|wbapplua\/get_wbpullad_log\.lua),REJECT
 # > 微博_屏蔽sdkconfig请求@ddgksf2013
