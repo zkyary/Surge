@@ -1,10 +1,12 @@
 #!name=重写获取Cookie
-#!desc=最后更新时间 2024-10-16
+#!desc=最后更新时间 2025-09-28
 #!system=ios
 
 # 分割线——————————————————————————
 
 [Script]
+# > 途虎养车 进入途虎养车小程序积分页面即可获取
+途虎养车 = type=http-request,pattern=https:\/\/api\.tuhu\.cn\/User\/GetInternalCenterInfo,requires-body=0,max-size=0,script-path=https://raw.githubusercontent.com/Sliverkiss/GoodNight/master/Script/tuhu.js
 # > 吾爱破解 登陆https://www.52pojie.cn/home.php
 吾爱破解 = type=http-request,pattern=^https:\/\/www\.52pojie\.cn\/home\.php\?, requires-body=0, max-size=0, script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Tasks/52pojie.js
 # > 欧可林商城 进入微信小程序"欧可林商城"并点击"每日任务"
@@ -34,4 +36,4 @@ Fa米家 = type=http-request,pattern=^https?:\/\/fmapp\.chinafamilymart\.com\.cn
 # 分割线——————————————————————————
 
 [MITM]
-hostname = %INSERT% www.52pojie.cn, api.m.jd.com, bean.m.jd.com, ms.jr.jd.com, me-api.jd.com, mall.oclean.com, music.163.com, 113.96.156.178, *.ximalaya.com, e.189.cn, i.meituan.com, m.weibo.cn, *.m.163.com, c.tieba.baidu.com, tiebac.baidu.com, *.xxjjappss.com, *.*.mob.com, *.huaerdadi.com, user-api.smzdm.com, account.huami.com, my.ruanmei.com, m.client.10010.com, ccsp-egmas.sf-express.com, wapside.189.cn:9001, apph5.manmanbuy.com, account.huami.com, club.yili.com, *.bilibili.com, api.wfdata.club, passport.iqiyi.com, fmapp.chinafamilymart.com.cn, air.tb.ele.me, tb.ele.me, h5.ele.me
+hostname = %INSERT% api.tuhu.cn, www.52pojie.cn, api.m.jd.com, bean.m.jd.com, ms.jr.jd.com, me-api.jd.com, mall.oclean.com, music.163.com, 113.96.156.178, *.ximalaya.com, e.189.cn, i.meituan.com, m.weibo.cn, *.m.163.com, c.tieba.baidu.com, tiebac.baidu.com, *.xxjjappss.com, *.*.mob.com, *.huaerdadi.com, user-api.smzdm.com, account.huami.com, my.ruanmei.com, m.client.10010.com, ccsp-egmas.sf-express.com, wapside.189.cn:9001, apph5.manmanbuy.com, account.huami.com, club.yili.com, *.bilibili.com, api.wfdata.club, passport.iqiyi.com, fmapp.chinafamilymart.com.cn, air.tb.ele.me, tb.ele.me, h5.ele.me
