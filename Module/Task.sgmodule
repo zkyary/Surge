@@ -1,5 +1,5 @@
 #!name=定时任务脚本
-#!desc=最后更新时间 2025-09-28
+#!desc=最后更新时间 2025-10-05
 #!system=ios
 
 # 分割线——————————————————————————
@@ -28,9 +28,7 @@
 # > 今日黄历
 今日黄历 = type=cron, cronexp=8 18 8 * * *, wake-system=1, script-path=https://raw.githubusercontent.com/TributePaulWalker/Profiles/main/JavaScript/Surge/wnCalendar.js, script-update-interval=0, timeout=30
 # > 百度贴吧
-百度贴吧 = type=cron, cronexp=30 3 0 * * *, wake-system=1, timeout=60, script-path=https://gist.githubusercontent.com/blackmatrix7/cebabe7a385fc6a9ad32e2f7a35851dc/raw/1363d8720c92267d0a97fcd8eb98673760891fc9/tieba_min.js, script-update-interval=0
-# > Fa米家
-#Fa米家签到 = type=cron, cronexp=15 0 * * *, wake-system=1, timeout=30, script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/famijia/famijia_checkin.js, script-update-interval=0
+百度贴吧 = type=cron,cronexp=18 9 * * *,timeout=180,script-path=https://gist.githubusercontent.com/blackmatrix7/cebabe7a385fc6a9ad32e2f7a35851dc/raw/1363d8720c92267d0a97fcd8eb98673760891fc9/tieba_min.js
 # > Sub-Store订阅同步
 订阅同步 = type=cron, cronexp=55 23 * * *, wake-system=1, timeout=120, script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, script-update-interval=0
 # > Gist备份+恢复
